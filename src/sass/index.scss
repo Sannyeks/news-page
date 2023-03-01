@@ -1,2 +1,17 @@
+@import './utilits/variables';
+@import './utilits/mixins';
+
+@import './components/container';
+
 @import './common';
-@import './example';
+
+@import './base/common';
+@import './base/reset';
+
+@import './layouts/header';
+@import './layouts/home-page-categories';
+@import './layouts/home-page';
+@import './layouts/pagination';
+@import './layouts/burger-menu';
+@import './layouts/footer';
+@import './layouts/read';
