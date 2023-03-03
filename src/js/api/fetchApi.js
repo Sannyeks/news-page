@@ -4,7 +4,7 @@ const BASE_URL = 'https://api.nytimes.com/svc';
 const MOST_POPULAR_NEWS = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?${KEY}`;
 
 // Пошук популярних новин
-export default async function getPopularArticle() {
+async function getPopularArticle() {
     const articleFetch = await fetch(MOST_POPULAR_NEWS);
     const articles = await articleFetch.json();
     let { results } = articles;
