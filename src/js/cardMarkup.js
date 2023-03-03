@@ -1,4 +1,4 @@
-function cardMarkup(items) {
+export default function cardMarkup(items) {
   const markup = items.map(({ headline, url, lead_paragraph, news_desk, pub_date, web_url})=> {
     return `<li class="card__item">
     <div class="card__wrapper">
