@@ -1,0 +1,1 @@
+import getPopularArticle from "./js/api/fetchApi";
