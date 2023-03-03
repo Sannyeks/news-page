@@ -1,12 +1,17 @@
 
 export default function cardMarkup(items) {
-  const markup = items.map(({ headline, url, lead_paragraph, news_desk, pub_date, web_url})=> {
+  const markup = items.map(({headline, web_url, pub_date, lead_paragraph, news_desk, bigMobileImg,smallMobileImg,smallSquareImg,bigSquareImg})=> {
+    const lenght = lead_paragraph.length > 80
+      ? lead_paragraph.slice(0, 80) + '...'
+      : lead_paragraph;
+      
+
     return `<li class="card__item">
     <div class="card__wrapper">
       <div class="card-image__wrapper">
         <img
           class="card__image"
-          src="${url}"
+          src="https://www.nytimes.com/${bigSquareImg}"
           alt="news"
           width="288"
           height="395"
@@ -18,9 +23,7 @@ export default function cardMarkup(items) {
       </div>
 
       <h2 class="card__title">${headline}</h2>
-      <p class="card__article">${lead_paragraph.length} > 80
-      ? ${lead_paragraph}.slice(0, 80) + '...'
-      : ${lead_paragraph}</p>
+      <p class="card__article">${lenght}</p>
 
       <div class="card__info">
         <span class="card__info--date">${pub_date}</span>
