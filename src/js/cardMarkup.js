@@ -1,3 +1,4 @@
+
 export default function cardMarkup(items) {
   const markup = items.map(({ headline, url, lead_paragraph, news_desk, pub_date, web_url})=> {
     return `<li class="card__item">
@@ -17,7 +18,9 @@ export default function cardMarkup(items) {
       </div>
 
       <h2 class="card__title">${headline}</h2>
-      <p class="card__article">${lead_paragraph}</p>
+      <p class="card__article">${lead_paragraph.length} > 80
+      ? ${lead_paragraph}.slice(0, 80) + '...'
+      : ${lead_paragraph}</p>
 
       <div class="card__info">
         <span class="card__info--date">${pub_date}</span>

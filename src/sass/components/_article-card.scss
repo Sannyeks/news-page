@@ -1,25 +1,3 @@
-// .cards__list {
-//   display: flex;
-//   flex-wrap: wrap;
-//   flex-direction: row;
-//   @mixin mobile {
-//     @media screen and (min-width: 320px) {
-//       gap: 28px;
-//     }
-//   }
-
-//   @mixin tablet {
-//     @media screen and (min-width: 768px) {
-//       gap: 30px;
-//     }
-//   }
-
-//   @mixin desktop {
-//     @media screen and (min-width: 1280px) {
-//       gap: 30px;
-//     }
-//   }
-// }
 
 .card__wrapper {
   @mixin mobile {
