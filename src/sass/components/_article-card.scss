@@ -1,0 +1,315 @@
+// .cards__list {
+//   display: flex;
+//   flex-wrap: wrap;
+//   flex-direction: row;
+//   @mixin mobile {
+//     @media screen and (min-width: 320px) {
+//       gap: 28px;
+//     }
+//   }
+
+//   @mixin tablet {
+//     @media screen and (min-width: 768px) {
+//       gap: 30px;
+//     }
+//   }
+
+//   @mixin desktop {
+//     @media screen and (min-width: 1280px) {
+//       gap: 30px;
+//     }
+//   }
+// }
+
+.card__wrapper {
+  @mixin mobile {
+    @media screen and (min-width: 320px) {
+      max-width: 288px;
+      max-height: 630px;
+    }
+  }
+
+  @mixin tablet {
+    @media screen and (min-width: 768px) {
+      max-width: 353px;
+      max-height: 675px;
+    }
+  }
+
+  @mixin desktop {
+    @media screen and (min-width: 1280px) {
+      max-width: 396px;
+    }
+  }
+}
+
+.card__item--weather {
+  background-color: #00dd73;
+  @mixin mobile {
+    @media screen and (min-width: 320px) {
+      width: 288px;
+      height: 630px;
+    }
+  }
+
+  @mixin tablet {
+    @media screen and (min-width: 768px) {
+      width: 353px;
+      height: 675px;
+    }
+  }
+
+  @mixin desktop {
+    @media screen and (min-width: 1280px) {
+      width: 396px;
+    }
+  }
+}
+
+.card-image__wrapper {
+  position: relative;
+
+  max-height: 395px;
+
+  overflow: hidden;
+  @mixin mobile {
+    @media screen and (min-width: 320px) {
+      max-width: 288px;
+    }
+  }
+
+  @mixin tablet {
+    @media screen and (min-width: 768px) {
+      max-width: 395px;
+    }
+  }
+
+  @mixin desktop {
+    @media screen and (min-width: 1280px) {
+      max-width: 395px;
+    }
+  }
+}
+.card__image {
+  filter: brightness(50%);
+}
+.card-jobsearching {
+  display: block;
+  width: 112px;
+  height: 24px;
+
+  background-color: rgba(68, 64, 247, 0.7);
+
+  border-radius: 0px 4px 4px 0px;
+
+  text-align: center;
+  padding-top: 4px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: var(--white-color);
+
+  position: absolute;
+  left: 0;
+  top: 44px;
+}
+.card-already__read {
+  display: block;
+
+  font-style: normal;
+  font-weight: 700;
+  @mixin mobile {
+    @media screen and (min-width: 320px) {
+      font-size: 14px;
+      line-height: 19px;
+
+      color: #00dd73;
+
+      position: absolute;
+      right: 36px;
+      top: 14px;
+    }
+  }
+
+  @mixin tablet {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @mixin desktop {
+    @media screen and (min-width: 1280px) {
+      @content;
+    }
+  }
+}
+
+.card-already__read::after {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-image: url('../images/svg/heart_svg.svg');
+
+  position: absolute;
+  right: -24px;
+  top: 0;
+}
+
+.card__btn {
+  display: flex;
+  justify-content: center;
+
+  width: 126px;
+  height: 28px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  align-items: center;
+
+  background: var(--white-color);
+  border: none;
+  border-radius: 20px;
+
+  position: absolute;
+  right: 8px;
+  bottom: 12px;
+}
+
+.card__btn::after {
+  content: '';
+  display: flex;
+
+  width: 15px;
+  height: 15px;
+
+  background-image: url('../images/svg/heart_svg.svg');
+
+  margin-left: 6px;
+}
+
+.card__title {
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+
+  color: var(--dark-color);
+  @mixin mobile {
+    @media screen and (min-width: 320px) {
+      margin-top: 20px;
+
+      font-size: 24px;
+      line-height: 33px;
+    }
+  }
+
+  @mixin tablet {
+    @media screen and (min-width: 768px) {
+      font-size: 32px;
+      line-height: 44px;
+    }
+  }
+
+  @mixin desktop {
+    @media screen and (min-width: 1280px) {
+      @content;
+    }
+  }
+}
+.card__article {
+  margin-top: 20px;
+
+  font-style: normal;
+  font-weight: 400;
+
+  @mixin mobile {
+    @media screen and (min-width: 320px) {
+      font-size: 14px;
+      line-height: 19px;
+
+      color: var(--dark-color);
+    }
+  }
+
+  @mixin tablet {
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  @mixin desktop {
+    @media screen and (min-width: 1280px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+}
+
+.card__info {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 20px;
+}
+
+.card__info--date {
+  @mixin mobile {
+    @media screen and (min-width: 320px) {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      text-align: right;
+
+      color: var(--grey-color);
+    }
+  }
+
+  @mixin tablet {
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  @mixin desktop {
+    @media screen and (min-width: 1280px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+}
+.card__info--readmore {
+  @mixin mobile {
+    @media screen and (min-width: 320px) {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+
+      color: var(--components-color);
+
+      border: none;
+    }
+  }
+
+  @mixin tablet {
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  @mixin desktop {
+    @media screen and (min-width: 1280px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+}
