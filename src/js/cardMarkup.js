@@ -50,6 +50,6 @@ export default function cardMarkup(items) {
  
 }
 
-const ulEl = document.querySelector('.cards__list');
+// const ulEl = document.querySelector('.cards__list');
 
-ulEl.insertAdjacentHTML('beforeend', cardMarkup());
+// ulEl.insertAdjacentHTML('beforeend', cardMarkup());
