@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorite</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Poppins&family=Roboto&display=swap"
+    rel="stylesheet" />
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
   </head>
@@ -11,11 +14,30 @@
     <include src="./partials/header.html"></include>
     <include src="./partials/burger-menu.html"></include>
 	 <main class="main">
-    <section>
+    <section class="gallery container">
         <div class="favorite-container container">
+          <div class="container news-loader__container is-hidden">
+            <div class="news-loader-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            <ul class="cards__list">
+              <li class="card__item">
+                <!-- <article class="item-news__article" id=""></article> -->
+              </li>
+              <li class="card__item">
+                <!-- <article class="item-news__article" id=""></article> -->
+              </li>
+              <li class="card__item">
+                <!-- <article class="item-news__article" id=""></article> -->
+              </li>
+            </ul>
+            </div>
+          </div>
           <include src="./partials/negative-search.html"></include>
           <div id="error"></div>
-        </div>
+        <!-- </div> -->
         </section>
    </main>
     <include src="./partials/footer.html"></include>
