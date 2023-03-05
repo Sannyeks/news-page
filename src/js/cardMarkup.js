@@ -1,17 +1,22 @@
 
 export default function cardMarkup(items) {
-  const markup = items.map(({headline, web_url, pub_date, lead_paragraph, news_desk, bigMobileImg,smallMobileImg,smallSquareImg,bigSquareImg})=> {
+  const markup = items.map(({headline, web_url, pub_date, lead_paragraph, news_desk, id,bigMobileImg,smallMobileImg,smallSquareImg})=> {
     const lenght = lead_paragraph.length > 80
       ? lead_paragraph.slice(0, 80) + '...'
       : lead_paragraph;
-      
+     
+      const img = !bigMobileImg
+      ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9eXq6h_EHL7Iu-tVrAWQPJ4ozAiL3y5NY2m5jmcw&s'
+      : `https://www.nytimes.com/${bigMobileImg}`;
+    
+  
 
-    return `<li class="card__item">
+    return `<li class="card__item" id="${id}">
     <div class="card__wrapper">
       <div class="card-image__wrapper">
         <img
           class="card__image"
-          src="https://www.nytimes.com/${bigSquareImg}"
+          src="${img}"
           alt="news"
           width="288"
           height="395"
