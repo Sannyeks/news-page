@@ -1,15 +1,37 @@
 <script type="module" src="./js/headerSearch.js"></script>
-<form class="header-search-form" id="header-form-js">
-    <div class="header-search__field">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search"
-        class="header-search__input"
-        id="header-input-js"
-        autofocus
-      />
-      <button type="submit" class="header-search-btn" id="header-btn-js" disabled>&#128269;</button>
-    </div>
-  </form>
+    <header class="main-header">
+      <div class="container header-main-nav">
+        <nav class="main-nav">
+          <a href="/src/index.html" class="logo link">
+            <span class="news-logo">News</span>
+          </a>
+
+          <ul class="site-nav list">
+            <li class="item">
+              <a href="/src/index.html" class="link current">Home</a>
+            </li>
+            <li class="item">
+              <a href="/src/favorite.html" class="link">Favorite</a>
+            </li>
+            <li class="item">
+              <a href="/src/read.html" class="link">Read</a>
+            </li>
+          </ul>
+        </nav>
+		  <form class="header-search-form" id="header-form-js">
+  <div class="header-search__field">
+    <input
+      type="text"
+      name="searchQuery"
+      autocomplete="off"
+      placeholder="Search"
+      class="header-search__input"
+      id="header-input-js"
+      autofocus
+    />
+    <button type="submit" class="header-search-btn" id="header-btn-js" disabled>
+      &#128269;
+    </button>
+  </div>
+</form>
+    </header>
