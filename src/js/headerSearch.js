@@ -23,7 +23,16 @@ function onHeaderSearchSubmit (event) {
     if(searchParams.q) {
 			getNewsBySearch(ENDPOINT,searchParams).then((res) => {
                 list.innerHTML = cardMarkup(res);
+            // console.log(res);
+            //     const cardWrapper= document.querySelector('.card__item');
+            //     cardWrapper.addEventListener('click', onClickCardWrapper);
+            //     function onClickCardWrapper(event) {
+            //         console.log(event.target);
+            //     }
+                // localStorage.setItem("favorite-key", JSON.stringify(res))
+               
             });
+        
     } else {
         console.log('Field can\`t be empty.');
     }

@@ -8,38 +8,21 @@
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Poppins&family=Roboto&display=swap"
     rel="stylesheet" />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <!-- <script type="module" src="./index.js"></script> -->
   </head>
   <body>
     <include src="./partials/header.html"></include>
     <include src="./partials/burger-menu.html"></include>
 	 <main class="main">
     <section class="gallery container">
-        <div class="favorite-container container">
-          <div class="container news-loader__container is-hidden">
-            <div class="news-loader-ring">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            <ul class="cards__list">
-              <li class="card__item">
-                <!-- <article class="item-news__article" id=""></article> -->
-              </li>
-              <li class="card__item">
-                <!-- <article class="item-news__article" id=""></article> -->
-              </li>
-              <li class="card__item">
-                <!-- <article class="item-news__article" id=""></article> -->
-              </li>
-            </ul>
-            </div>
-          </div>
-          <include src="./partials/negative-search.html"></include>
-          <div id="error"></div>
-        <!-- </div> -->
-        </section>
+      <div class="favorite-container cards__list "></div>
+      <div class="favorite-not-found">
+        <p class="underfined___title visible">Nothing added to favorite</p>
+        <include src="./partials/negative-search.html"></include>
+      </div>
+   </section>
    </main>
     <include src="./partials/footer.html"></include>
+    <script src="./js/favorite.js" type="module"></script>
   </body>
 </html>

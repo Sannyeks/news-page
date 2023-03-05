@@ -19,7 +19,8 @@ export default function cardMarkup(items) {
         />
         <span class="card-jobsearching"> ${news_desk} </span>
         <span class="card-already__read is-hidden">Already read</span>
-        <button class="card__btn" type="button">Add to favorite</button>
+        <button class="card__btn btn-add" type="button" >Add to favorite</button>
+        <button class="card__btn btn-remove" type="button" data-url="${web_url}">Remove from favorite</button>
       </div>
 
       <h2 class="card__title">${headline}</h2>
@@ -32,7 +33,7 @@ export default function cardMarkup(items) {
         </a>
       </div>
     </div>
-  </li>`
+  </li>`;
     });
 
     let clientViewportWidth = window.innerWidth;
@@ -51,8 +52,20 @@ export default function cardMarkup(items) {
       markup.splice(i, 0, weatherElement);
     }
   }
-  
+ 
+
+ 
+    
+
+ 
+
+ 
+
+
+
+
   return markup.join('');
+
  
 }
 
