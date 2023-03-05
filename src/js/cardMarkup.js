@@ -1,12 +1,21 @@
+import {hasItem} from "./localstorage";
+const FAVORITE_KEY = "favorite-key";
+const READ_KEY = "read-key";
+
 
 
 export default function cardMarkup(items) {
+
+  
+
   const markup = items.map(({headline, web_url, pub_date, lead_paragraph, news_desk, bigMobileImg,smallMobileImg,smallSquareImg,bigSquareImg})=> {
     const lenght = lead_paragraph.length > 80
       ? lead_paragraph.slice(0, 80) + '...'
       : lead_paragraph;
       
-
+    const isFav = hasItem(FAVORITE_KEY, (item) => item.web_url == web_url);
+    const isReaded = hasItem(READ_KEY, (item) => item.web_url == web_url);
+ 
     return `<li class="card__item">
     <div class="card__wrapper">
       <div class="card-image__wrapper">
@@ -19,9 +28,10 @@ export default function cardMarkup(items) {
           loading='lazy'
         />
         <span class="card-jobsearching"> ${news_desk} </span>
-        <span class="card-already__read is-hidden">Already read</span>
-        <button class="card__btn btn-add" type="button" >Add to favorite</button>
-        <button class="card__btn btn-remove" type="button" data-url="${web_url}">Remove from favorite</button>
+        <span class="card-already__read ${isReaded ? "" : "is-hidden" }">Already read</span>
+        <button class="card__btn btn-add ${isFav ? "is-hidden" : ""}" type="button" 
+        data-url="${web_url}">Add to favorite</button>
+        <button class="card__btn btn-remove ${isFav ? "" : "is-hidden"}" type="button" data-url="${web_url}">Remove from favorite</button>
       </div>
 
       <h2 class="card__title">${headline}</h2>
@@ -40,30 +50,14 @@ export default function cardMarkup(items) {
     let clientViewportWidth = window.innerWidth;
     const weatherElement = '<li class="card__item"><div class="card__item--weather"></div></li>';
 
+ 
   if (clientViewportWidth >= 768 && clientViewportWidth < 1280) {
-    for (let i = 1; i < markup.length; i += 6) {
-      markup.splice(i, 0, weatherElement);
-    }
+    markup.splice(1, 0, weatherElement);
   } else if (clientViewportWidth >= 1280) {
-    for (let i = 2; i < markup.length; i += 9) {
-      markup.splice(i, 0, weatherElement);
-    }
+    markup.splice(2, 0, weatherElement);
   } else {
-    for (let i = 0; i < markup.length; i += 3) {
-      markup.splice(i, 0, weatherElement);
-    }
+    markup.splice(0, 0, weatherElement);
   }
- 
-
- 
-    
-
- 
-
- 
-
-
-
 
   return markup.join('');
 
