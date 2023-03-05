@@ -76,6 +76,7 @@ function onHeaderSearchSubmit (event) {
                         console.log(err);
                     }
         });
+
         
     } else {
         console.log('Field can\`t be empty.');

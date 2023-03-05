@@ -1,23 +1,21 @@
-.cards__list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+.gallery {
   @mixin mobile {
     @media screen and (min-width: 320px) {
-      gap: 28px;
+      max-width: 320px;
+      ;
     }
   }
 
   @mixin tablet {
     @media screen and (min-width: 768px) {
-      gap: 30px;
+      max-width: 768px;
+      
     }
   }
 
   @mixin desktop {
     @media screen and (min-width: 1280px) {
-      gap: 30px;
+      max-width: 1280px;
     }
   }
 }
-
