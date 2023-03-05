@@ -1,4 +1,5 @@
 
+
 export default function cardMarkup(items) {
   const markup = items.map(({headline, web_url, pub_date, lead_paragraph, news_desk, bigMobileImg,smallMobileImg,smallSquareImg,bigSquareImg})=> {
     const lenght = lead_paragraph.length > 80
@@ -72,3 +73,4 @@ export default function cardMarkup(items) {
 // const ulEl = document.querySelector('.cards__list');
 
 // ulEl.insertAdjacentHTML('beforeend', cardMarkup());
+
