@@ -1,5 +1,5 @@
-import getPopularArticle from "./js/api/fetchApi";
-import cardMarkup from "./js/cardMarkup";
+// import getPopularArticle from "./js/api/fetchApi";
+// import cardMarkup from "./js/cardMarkup";
 
 
 

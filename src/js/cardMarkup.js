@@ -3,6 +3,7 @@ const FAVORITE_KEY = "favorite-key";
 const READ_KEY = "read-key";
 
 
+
 export default function cardMarkup(items) {
 
   
@@ -66,3 +67,4 @@ export default function cardMarkup(items) {
 // const ulEl = document.querySelector('.cards__list');
 
 // ulEl.insertAdjacentHTML('beforeend', cardMarkup());
+
