@@ -1,0 +1,22 @@
+.calendar {
+    @mixin mobile {
+        @media screen and (min-width: 320px) {
+            max-width: 288px;
+            height: 469px;
+        }
+      }
+    
+      @mixin tablet {
+        @media screen and (min-width: 768px) {
+          max-width: 353px;
+          height: 675px;
+        }
+      }
+    
+      @mixin desktop {
+        @media screen and (min-width: 1280px) {
+          max-width: 395px;
+          height: 675px;
+        }
+      }
+}
