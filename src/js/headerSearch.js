@@ -3,7 +3,6 @@ import getNewsBySearch from "./getNewsBySearch";
 import cardMarkup from "./cardMarkup";
 import normalizedNews from "./headerNormalizedNews"; 
 import paginationRender from "./paginationRender";
-import countQntOfPages from "./counterQntPage";
 
 
 const ENDPOINT = `https://api.nytimes.com/svc/search/v2/articlesearch.json`;
@@ -27,8 +26,10 @@ pagination.addEventListener('click', onRefBtn);
 
 
 async function onRefBtn(event){
-    const btnId = 'ref-btn';
-    if(event.target.id === btnId){
+
+    console.log(event.target);
+    if(event.target.id === 'ref-btn') {
+        
         searchParams.reset();
         searchParams.resetOrderOfRequests();
         // searchParams.resetRequests();
@@ -38,7 +39,8 @@ async function onRefBtn(event){
             try{
                 const paginationMarkup = paginationRender(res);
                 pagination.innerHTML = paginationMarkup;
- 
+                const nextBtnRef = document.getElementById('header-btn-next-js');
+                const backBtnRef = document.getElementById('header-btn-back-js');
                 nextBtnRef.addEventListener('click', onNext);
                 backBtnRef.addEventListener('click', onBack);
                 } catch(err) {
@@ -46,9 +48,12 @@ async function onRefBtn(event){
                 }
         }
         
-        
     ).catch(console.log);
+
+        
     }
+
+    
 
 }
 
@@ -121,6 +126,9 @@ function getCuttedArticle (params) {
     }
     const firstRequest = SearchInputParams.firstRequest;
     const lastRequest = SearchInputParams.lastRequest; 
+    console.log(firstRequest);
+    console.log(lastRequest);
+    console.log(params.getRequests());
     return params.getNeededRequests(firstRequest,lastRequest);
 }
 async function onBack() {
@@ -129,6 +137,7 @@ async function onBack() {
     if(searchParams.getFirstRequest() === 0) {
         searchParams. resetRequests();
         searchParams.resetOrderOfRequests();
+        console.log('назад не мотай');
     await getNewsBySearch(ENDPOINT,searchParams)
     .then(res => normalizedNews(res))
     .then(res => res.map((request) => searchParams.addRequest(request)));
@@ -144,38 +153,12 @@ async function onNext() {
     await getNewsBySearch(ENDPOINT,searchParams)
     .then(res => normalizedNews(res))
     .then(res => res.map((request) => searchParams.addRequest(request)));
-    
-    const nextBtnRef = document.getElementById('header-btn-next-js');
-    const backBtnRef = document.getElementById('header-btn-back-js');
-    const firstChangedBtn = document.getElementById('ref-btn-1');
-    const secondChangedBtn = document.getElementById('ref-btn-2');
-    const thirdChangedBtn = document.getElementById('ref-btn-3');
     list.innerHTML = cardMarkup(getCuttedArticle(searchParams));
-    
-    
-    // if (firstChangedBtn.value === 2 || firstChangedBtn.value === (countQntOfPages() - 1)) {
-    //     backBtnRef.setAttribute('disabled', true);
-    // } else {
-    //     backBtnRef.removeAttribute('disabled');
-    // }
-
-
-    if(searchParams.page > 2) {
-
-            firstChangedBtn.value = Number(firstChangedBtn.value) + 1;
-            firstChangedBtn.textContent = `${firstChangedBtn.value}`;
-    
-            secondChangedBtn.value = Number(secondChangedBtn.value) + 1;
-            secondChangedBtn.textContent = `${secondChangedBtn.value}`;
-    
-            thirdChangedBtn.value = Number(thirdChangedBtn.value) + 1;
-            thirdChangedBtn.textContent = `${thirdChangedBtn.value}`;
-        }
-    
-    
 }
 
 
+
+     
 // const img = !bigMobileImg
 // ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9eXq6h_EHL7Iu-tVrAWQPJ4ozAiL3y5NY2m5jmcw&s'
 // : `https://www.nytimes.com/${bigMobileImg}`;
