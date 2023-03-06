@@ -1,0 +1,255 @@
+svg {
+  --size: 1em;
+  width: var(--size);
+  height: var(--size);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+  }
+}
+
+/* main-nav */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.main-nav .logo {
+  margin-right: 96px;
+}
+
+.header-main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* SITE NAV */
+
+.news-logo {
+  color: #212121;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 57px;
+}
+
+.current {
+  position: relative;
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 28px;
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #4440f6;
+}
+
+.studio.logo {
+  color: var(--title-text-color);
+}
+
+.site-nav {
+  display: none;
+  gap: 60px;
+  position: relative;
+  top: 8px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+
+// ====================================================
+
+.search-box {
+  border-radius: 40px;
+  position: absolute;
+  top: 1%;
+  left: 48%;
+
+  transform: translate(-50%, 50%);
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.search-text {
+  border-radius: 20px;
+}
+
+.search-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  color: tomato;
+}
+
+//=====================================================
+.search__input {
+  margin-left: 147px;
+  width: 288px;
+  height: 31px;
+  left: 681px;
+  top: 51px;
+  border-radius: 2px;
+  border-radius: 20px;
+}
+// .site-nav .item + .item {
+//   margin-left: 50px;
+// }
+
+// .contact-nav .item + .item {
+//   margin-left: 50px;
+// }
+
+.site-nav .link {
+  display: block;
+
+  color: var(--title-text-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.16;
+  letter-spacing: 0.02em;
+  padding: 32px 5px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-nav .link:hover,
+.site-nav .link:focus {
+  color: #4b48db;
+  cursor: pointer;
+}
+
+.contact-nav.list {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+}
+
+.contact-nav .link {
+  color: var(--primary-text-color);
+}
+
+.contact-nav-icon:hover {
+  fill: currentColor;
+}
+
+/* =========================================================== */
+
+.search-container {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+.header-search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.header-search__input {
+  padding-left: 45px;
+  width: 173px;
+  height: 31px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: #f4f4f4;
+  border: 1px solid rgba(17, 19, 33, 0.2);
+  padding-top: 6px;
+  font: inherit;
+  transition: 0.25s;
+
+  @media screen and (min-width: 768px) {
+    width: 213px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 288px;
+  }
+}
+
+.header-search__input:focus {
+  padding-top: 2px;
+}
+
+.header-search__input::placeholder {
+  color: rgba(17, 19, 33, 0.2);
+}
+
+.header-search__field {
+  position: relative;
+}
+
+.header-search-form button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  height: 100%;
+  border: none;
+  color: var(--dark-color);
+  transition: all 0.3s;
+  background: none;
+
+  border-radius: 20px;
+  cursor: pointer;
+  // @media screen and (min-width: 768px) {
+  //   right: 213px;
+  // }
+  // @media screen and (min-width: 1200px) {
+  //   right: 286px;
+  // }
+}
+
+.header-search-form button:hover,
+.header-search-form button:focus {
+  color: var(--components-color);
+}
+
+.material-icons {
+  position: absolute;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================== */
