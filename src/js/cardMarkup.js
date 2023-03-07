@@ -34,11 +34,10 @@ export default function cardMarkup(items) {
     const cardItem = document.createElement('li');
     cardItem.classList.add('card__item');
     cardItem.innerHTML = `<div class="card__wrapper">
-
       <div class="card-image__wrapper">
         <img
           class="card__image"
-          src=${img}
+          src="https://www.nytimes.com/${bigSquareImg}"
           alt="news"
           width="288"
           height="395"
