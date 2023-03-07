@@ -3,8 +3,6 @@ const FAVORITE_KEY = 'favorite-key';
 const READ_KEY = 'read-key';
 
 function formatDate(dt) {
- 
-
   return `${dt.getFullYear()}/${dt.getMonth()}/${dt.getDate()}`
 }
 
