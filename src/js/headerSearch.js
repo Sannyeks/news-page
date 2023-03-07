@@ -9,6 +9,7 @@ const READ_KEY = "read-key";
 
 import normalizedNews from "./headerNormalizedNews"; 
 import paginationRender from "./paginationRender";
+import countQntOfPages from "./counterQntPage";
 
 const ENDPOINT = `https://api.nytimes.com/svc/search/v2/articlesearch.json`;
 const searchParams = new SearchInputParams({
@@ -21,46 +22,246 @@ const formRef = document.getElementById('header-form-js');
 const inputRef = document.getElementById('header-input-js');
 const btnRef = document.getElementById('header-btn-js');
 const list = document.querySelector('.cards__list');
-const pagination = document.querySelector('.thumb');
+
 // const gallery = document.querySelector('.gallery');
 
 
 formRef.addEventListener('submit', onHeaderSearchSubmit);
 inputRef.addEventListener('input', onHeaderInput);
-pagination.addEventListener('click', onRefBtn);
+
 
 
 async function onRefBtn(event){
+    if (event.target.nodeName === "BUTTON") {
+    const activeClass = 'isActivePage';
+    const refsChangedBtn = document.querySelectorAll("button[data-changedBtn]");
+    const refsBtns = document.querySelectorAll('#ref-btn');
 
-    console.log(event.target);
+    const firstCnangedBtn = {
+        isActive(){ return refsChangedBtn[0].classList.contains(activeClass);},
+        noActive() { return refsChangedBtn[0].classList.remove(activeClass);},
+        active() { return refsChangedBtn[0].classList.add(activeClass);},
+        getValue() { return refsChangedBtn[0].value;},
+    };
+    const lastCnangedBtn = {
+        isActive(){ return refsChangedBtn[refsChangedBtn.length - 1].classList.contains(activeClass);},
+        noActive() { return refsChangedBtn[refsChangedBtn.length - 1].classList.remove(activeClass);},
+        active() { return refsChangedBtn[refsChangedBtn.length - 1].classList.add(activeClass);},
+        getValue() { return refsChangedBtn[refsChangedBtn.length - 1].value;},
+    };
+    const firstBtn = {
+        isActive(){ return document.querySelector('.first-btn').classList.contains(activeClass);},
+        noActive(){ return document.querySelector('.first-btn').classList.remove(activeClass);},
+        active(){ return document.querySelector('.first-btn').classList.add(activeClass);},
+    };
+    const lastBtn = {
+        isActive(){ return document.querySelector('.last-btn').classList.contains(activeClass);},
+        noActive(){ return document.querySelector('.last-btn').classList.remove(activeClass);},
+        active(){ return document.querySelector('.last-btn').classList.add(activeClass);},
+    };
+    const backBtn = {
+        disable() { document.getElementById('header-btn-back-js').setAttribute('disabled',true);},
+        enable() { document.getElementById('header-btn-back-js').removeAttribute('disabled');}
+    };
+    const nextBtn = {
+        disable() { document.getElementById('header-btn-next-js').setAttribute('disabled',true);},
+        enable() { document.getElementById('header-btn-next-js').removeAttribute('disabled');}
+    };
+
     if(event.target.id === 'ref-btn') {
-        
         searchParams.reset();
         searchParams.resetOrderOfRequests();
-        // searchParams.resetRequests();
         searchParams.setPage(event.target.value);
-        await renderCards(ENDPOINT,searchParams)
-        .then(res => {
-            try{
-                const paginationMarkup = paginationRender(res);
-                pagination.innerHTML = paginationMarkup;
-                const nextBtnRef = document.getElementById('header-btn-next-js');
-                const backBtnRef = document.getElementById('header-btn-back-js');
-                nextBtnRef.addEventListener('click', onNext);
-                backBtnRef.addEventListener('click', onBack);
-                } catch(err) {
-                    console.log(err);
-                }
-        }
-        
-    ).catch(console.log);
+        await renderCards(ENDPOINT,searchParams).then((res) => {
+            list.innerHTML = cardMarkup(res);
+        });
 
-        
+        for (let i = 0; i < refsBtns.length; i += 1) {
+            if (refsBtns[i].classList.contains(activeClass)){
+                refsBtns[i].classList.remove(activeClass);
+            }
+        }
+        event.target.classList.add(activeClass);
+
+        if(Number(event.target.value) !== 1) {
+            backBtn.enable();
+        } 
+        if(Number(event.target.value) !== Number(countQntOfPages())) {
+            nextBtn.enable();
+        } 
+
+        if(Number(event.target.value) === Number(countQntOfPages())) {
+            nextBtn.disable();
+        }
+        if(Number(event.target.value) === 1) {
+            backBtn.disable();
+        }
+    }  
+    if(event.target.id === 'header-btn-next-js') {
+        backBtn.enable();
+        await onNext();
+
+        // Якщо активна перша кнопка
+    if(firstBtn.isActive()) {
+        firstBtn.noActive();
+        firstCnangedBtn.active();
+        return;
+    }
+        // Якщо активні кнопкa 2 і є статті
+    if (firstCnangedBtn.isActive() && Number(lastCnangedBtn.getValue()) !== Number(countQntOfPages() - 1)) {
+        increaseChangedBtn(refsChangedBtn);
+        return;
+    } 
+        // Якщо активні кнопкa 2-3 
+    for (let i = 0; i < refsChangedBtn.length - 1; i += 1) {
+        if (refsChangedBtn[i].classList.contains(activeClass)) {
+            refsChangedBtn[i].classList.remove(activeClass);
+            refsChangedBtn[(i + 1)].classList.add(activeClass);
+            return;
+            }
+    continue;
+    }
+        // Якщо активні кнопкa 4 і немає статтей
+        if (lastCnangedBtn.isActive() && Number(lastCnangedBtn.getValue()) === Number(countQntOfPages() - 1)) {
+            lastCnangedBtn.noActive();
+            lastBtn.active();
+            nextBtn.disable();
+            return;
+        }   
+       
+            //  Якщо активні кнопкa 4 і є статті
+     if (lastCnangedBtn.isActive() && Number(lastCnangedBtn.getValue()) !== Number(countQntOfPages() - 1)){
+        increaseChangedBtn(refsChangedBtn);
+        return;
+     }
+     return;
+    } 
+    if(event.target.id === 'header-btn-back-js') {
+
+         // Якщо остання кнопка активна
+    if (lastBtn.isActive()) {
+        nextBtn.enable();
+        lastBtn.noActive();
+        lastCnangedBtn.active();
+        return;
     }
 
+         // Якщо 3-4 кнопки активні
+    for (let i = refsChangedBtn.length - 1; i > 0; i -= 1) {
+        if (refsChangedBtn[i].classList.contains(activeClass)) {
+            refsChangedBtn[i].classList.remove(activeClass);
+            refsChangedBtn[(i - 1)].classList.add(activeClass);
+            return;
+            }
+    continue;
+    }
     
+         // Якщо 2 кнопкa активнa i cтатті вгорі є
+    if (firstCnangedBtn.isActive() && Number(firstCnangedBtn.getValue()) !== 2) {
+        decreaseChangedBtn(refsChangedBtn);
+        return;
+    } else {
+        firstCnangedBtn.noActive();
+        firstBtn.active();
+        backBtn.disable();
+    }
+
+        // if(Number(refsChangedBtn[0].value) !== 2 && Number(refsChangedBtn[0].value) !== Number(countQntOfPages()) - 3){
+        //     decreaseChangedBtn(refsChangedBtn);
+        // } else {
+        //     refsChangedBtn[0].classList.remove('isActivePage');
+        //     // document.querySelector('.first-btn').classList.add('isActivePage');
+        // }
+        // if(document.querySelector('.last-btn').classList.contains('isActivePage')) {
+        //     document.querySelector('.last-btn').classList.remove('isActivePage');
+        //     refsChangedBtn[refsChangedBtn.length - 1].classList.add('isActivePage');
+        //     document.getElementById('header-btn-next-js').removeAttribute('disabled');
+
+        // }
+        // if(document.querySelector('.first-btn').classList.contains('isActivePage')) {
+        //     event.target.setAttribute('disabled',true);
+        // }
+        //     await onBack();
+            
+        //     if (Number(refsChangedBtn[refsChangedBtn.length - 1].value) === Number(countQntOfPages()) - 1) {
+        //         event.target.removeAttribute('disabled');
+        //     } else {
+        //         document.getElementById('header-btn-next-js').removeAttribute('disabled');
+        //     }
+        //     return;
+        // }
+        // if(refsChangedBtn[0].classList.contains('isActivePage')) {
+        //     refsChangedBtn[0].classList.remove('isActivePage');
+        //     document.querySelector('.first-btn').classList.add('isActivePage');
+        // }
+
+        }
+    }
 
 }
+
+    function increaseChangedBtn(arrayOfButtons) {
+        for ( let i = 0; i < arrayOfButtons.length; i +=1){
+            arrayOfButtons[i].value = Number(arrayOfButtons[i].value) + 1;
+            arrayOfButtons[i].textContent = arrayOfButtons[i].value;
+        }
+    }
+    
+    function decreaseChangedBtn(arrayOfButtons) {
+        for ( let i = 0; i < arrayOfButtons.length; i +=1){
+            arrayOfButtons[i].value = Number(arrayOfButtons[i].value) - 1;
+            arrayOfButtons[i].textContent = arrayOfButtons[i].value;
+        }
+    }
+    // const nextBtnRef = document.getElementById('header-btn-next-js');
+    // const backBtnRef = document.getElementById('header-btn-back-js');
+    // nextBtnRef.addEventListener('click', onNext);
+    // backBtnRef.addEventListener('click', onBack);
+
+    // if(event.target.id === 'header-btn-next-js' 
+    // || event.target.id === 'header-btn-back-js') {
+    //     console.log('arrow');
+    //     searchParams.reset();
+    //     searchParams.resetOrderOfRequests();
+    //     // searchParams.setPage(event.target.value);
+    //     await renderCards(ENDPOINT,searchParams);
+        // .then(res => {
+        //     try{
+        //         const paginationMarkup = paginationRender(res);
+        //         pagination.innerHTML = paginationMarkup;
+        //         const nextBtnRef = document.getElementById('header-btn-next-js');
+        //         const backBtnRef = document.getElementById('header-btn-back-js');
+        //         nextBtnRef.addEventListener('click', onNext);
+        //         backBtnRef.addEventListener('click', onBack);
+        //         } catch(err) {
+        //             console.log(err);
+        //         }
+        // }
+        // ).catch(console.log);
+    // } else if (event.target.id === 'ref-btn') {
+    //     searchParams.reset();
+    //     searchParams.resetOrderOfRequests();
+    //     searchParams.setPage(event.target.value);
+    //     await renderCards(ENDPOINT,searchParams);
+        // .then(res => {
+        //     try{
+        //         const paginationMarkup = paginationRender(res);
+        //         pagination.innerHTML = paginationMarkup;
+        //         const nextBtnRef = document.getElementById('header-btn-next-js');
+        //         const backBtnRef = document.getElementById('header-btn-back-js');
+        //         nextBtnRef.addEventListener('click', onNext);
+        //         backBtnRef.addEventListener('click', onBack);
+        //         } catch(err) {
+        //             console.log(err);
+        //         }
+        // }
+        // ).catch(console.log);
+
+    // }
+
+
+
+
 
 
 function onHeaderSearchSubmit (event) {
@@ -110,12 +311,11 @@ function onHeaderSearchSubmit (event) {
         renderCards(ENDPOINT,searchParams)
         .then(res => {
                 try{
+                    const pagination = document.querySelector('.thumb');
+                    pagination.addEventListener('click', onRefBtn);
                     const paginationMarkup = paginationRender(res);
                     pagination.innerHTML = paginationMarkup;
-                    const nextBtnRef = document.getElementById('header-btn-next-js');
-                    const backBtnRef = document.getElementById('header-btn-back-js');
-                    nextBtnRef.addEventListener('click', onNext);
-                    backBtnRef.addEventListener('click', onBack);
+
                     } catch(err) {
                         console.log(err);
                     }
@@ -148,9 +348,10 @@ async function renderCards(url,params) {
     .catch(console.log);
     try{
         if(getCuttedArticle(params).length === 0) {
+            document.querySelector('.thumb').innerHTML = '';
+
             list.innerHTML = '<div class="default-img"></div>';
-            pagination.innerHTML = '';
-            return;
+             return;
         } else {
             list.replaceChildren(cardMarkup(getCuttedArticle(params)));
         }
@@ -182,7 +383,6 @@ async function onBack() {
     if(searchParams.getFirstRequest() === 0) {
         searchParams. resetRequests();
         searchParams.resetOrderOfRequests();
-        console.log('назад не мотай');
     await getNewsBySearch(ENDPOINT,searchParams)
     .then(res => normalizedNews(res))
     .then(res => res.map((request) => searchParams.addRequest(request)));
@@ -201,11 +401,5 @@ async function onNext() {
     list.replaceChildren(cardMarkup(getCuttedArticle(searchParams)));
 }
 
-
-
-     
-// const img = !bigMobileImg
-// ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9eXq6h_EHL7Iu-tVrAWQPJ4ozAiL3y5NY2m5jmcw&s'
-// : `https://www.nytimes.com/${bigMobileImg}`;
 
 
