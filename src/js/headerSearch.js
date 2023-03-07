@@ -270,7 +270,7 @@ function onHeaderSearchSubmit (event) {
     if(searchParams.q) {
 
 			getNewsBySearch(ENDPOINT,searchParams).then((res) => {
-                list.innerHTML = cardMarkup(res);
+                list.replaceChildren(cardMarkup(res));
 
                 list.querySelectorAll('.card__btn').forEach(
                     el => el.addEventListener("click", function(evt){
@@ -353,7 +353,7 @@ async function renderCards(url,params) {
             list.innerHTML = '<div class="default-img"></div>';
              return;
         } else {
-            list.innerHTML = cardMarkup(getCuttedArticle(params));
+            list.replaceChildren(cardMarkup(getCuttedArticle(params)));
         }
         
     } catch(err) {
@@ -390,7 +390,7 @@ async function onBack() {
         searchParams.decreaseOrderOfRequests();
     }
 
-    list.innerHTML = cardMarkup(getCuttedArticle(searchParams));
+    list.replaceChildren( cardMarkup(getCuttedArticle(searchParams)));
 }
 async function onNext() {
     searchParams.increasePageByOne();
@@ -398,7 +398,7 @@ async function onNext() {
     await getNewsBySearch(ENDPOINT,searchParams)
     .then(res => normalizedNews(res))
     .then(res => res.map((request) => searchParams.addRequest(request)));
-    list.innerHTML = cardMarkup(getCuttedArticle(searchParams));
+    list.replaceChildren(cardMarkup(getCuttedArticle(searchParams)));
 }
 
 
