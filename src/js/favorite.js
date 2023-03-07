@@ -10,7 +10,7 @@ const favoriteNews = localStorage.getItem(FAVORITE_KEY);
 let parseFavoriteNews = JSON.parse(favoriteNews);
 
 
-favoriteContainer.innerHTML = cardMarkup(parseFavoriteNews);
+favoriteContainer.replaceChildren(cardMarkup(parseFavoriteNews));
 
 
 favoriteContainer.addEventListener('click', removeFromFavorite);
@@ -23,7 +23,7 @@ function removeFromFavorite(event) {
  
       parseFavoriteNews.splice(favoriteCardIndex, 1);
       localStorage.setItem(FAVORITE_KEY, JSON.stringify(parseFavoriteNews));
-      favoriteContainer.innerHTML = cardMarkup(parseFavoriteNews);
+      favoriteContainer.replaceChildren(cardMarkup(parseFavoriteNews));
     }
   })
   
