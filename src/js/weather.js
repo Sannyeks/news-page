@@ -1,7 +1,8 @@
 import axios from "axios";
+
 const apiKey = "73bd6bca6bd522830119f0c6decba840";
 const KELVIN = 273;
-
+console.log(1111);
 const tempElement = document.querySelector(".temperature-value p");
 const descElement = document.querySelector(".temperature-description p");
 const locationElement = document.querySelector(".location p");

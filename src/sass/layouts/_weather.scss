@@ -6,6 +6,7 @@
 }
 
 .weather-container {
+	// position:relative;
 	margin: 0;
 	width: 353px;
 	height: 675px;
@@ -126,10 +127,13 @@
 	}
 
 }
-
+.weather-container__all {
+	position: relative;
+	width: fit-content;
+}
 .weather-week__container {
 	position: absolute;
-	z-index: 1;
+	// z-index: 1;
 	top: 0;
 	left: 0;
 	margin: 0;
