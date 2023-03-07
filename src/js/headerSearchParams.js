@@ -68,7 +68,7 @@ export default class SearchInputParams {
         SearchInputParams.firstRequest = 0;
         this.initLastRequest();
     }
+
+
 };
-
-
 
