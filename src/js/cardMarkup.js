@@ -25,6 +25,7 @@ export default function cardMarkup(items) {
       lead_paragraph.length > 80
         ? lead_paragraph.slice(0, 80) + '...'
         : lead_paragraph;
+        const img = !bigSquareImg ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9eXq6h_EHL7Iu-tVrAWQPJ4ozAiL3y5NY2m5jmcw&s' : `https://www.nytimes.com/${bigSquareImg}`;
 
     const isFav = hasItem(FAVORITE_KEY, item => item.web_url == web_url);
     const isReaded = hasItem(READ_KEY, item => item.web_url == web_url);

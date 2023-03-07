@@ -138,6 +138,10 @@ async function onRefBtn(event){
     } 
     if(event.target.id === 'header-btn-back-js') {
 
+        if(!firstBtn.isActive()) {
+            await onBack();
+        }
+
          // Якщо остання кнопка активна
     if (lastBtn.isActive()) {
         nextBtn.enable();
@@ -270,7 +274,7 @@ function onHeaderSearchSubmit (event) {
     if(searchParams.q) {
 
 			getNewsBySearch(ENDPOINT,searchParams).then((res) => {
-                list.replaceChildren(cardMarkup(res));
+                list.replaceChildren(cardMarkup(normalizedNews(res)));
 
                 list.querySelectorAll('.card__btn').forEach(
                     el => el.addEventListener("click", function(evt){
