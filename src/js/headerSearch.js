@@ -8,7 +8,7 @@ import paginationRender from "./paginationRender";
 import {decreaseChangedBtn, increaseChangedBtn} from "./paginatorChangedBtn";
 import cardMarkup from "./cardMarkup";
 import headerRefs from "./headerRefs";
-
+import {initWeather} from './weather';
 import { addItem, removeItem } from "./localstorage";
 
 const FAVORITE_KEY = "favorite-key";
@@ -31,7 +31,6 @@ async function onRefBtn(event){
         const activeClass = 'isActivePage';
         const refsChangedBtn = document.querySelectorAll("button[data-changedBtn]");
         const refsBtns = document.querySelectorAll('#ref-btn');
-        console.log(refsBtns);
 
         const firstCnangedBtn = new RefBtnClass(refsChangedBtn[0]);
         const lastCnangedBtn = new RefBtnClass(refsChangedBtn[refsChangedBtn.length - 1]);
@@ -46,10 +45,10 @@ async function onRefBtn(event){
             searchParams.setPage(event.target.value);
             await renderCards(ENDPOINT,searchParams).then((res) => {
                 headerRefs.list.replaceChildren(cardMarkup(res));
+                initWeather();
             });
 
             for (let i = 0; i < refsBtns.length; i += 1) {
-                console.log(i);
                 if (refsBtns[i].classList.contains(activeClass)){
                     refsBtns[i].classList.remove(activeClass);
                 }
@@ -145,12 +144,15 @@ async function onRefBtn(event){
 
 function onHeaderSearchSubmit (event) {
     event.preventDefault();
+    headerRefs.backArrow.classList.add('is-hidden-btn');
+    headerRefs.nextArrow.classList.add('is-hidden-btn');
     searchParams.q = event.currentTarget.elements.searchQuery.value.trim();    
     if(searchParams.q) {
 
 			getNewsBySearch(ENDPOINT,searchParams).then((res) => {
                 
                 headerRefs.list.replaceChildren(cardMarkup(normalizedNews(res)));
+                initWeather();
 
                 headerRefs.list.querySelectorAll('.card__btn').forEach(
                     el => el.addEventListener("click", function(evt){
@@ -203,6 +205,7 @@ function onHeaderSearchSubmit (event) {
                             return;
                     } else {
                         headerRefs.list.replaceChildren(cardMarkup(getCuttedArticle(searchParams)));
+                        initWeather();
                     }
                 } catch(err) {
                     console.error(err);
@@ -252,6 +255,7 @@ async function renderCards(url,params) {
                 return;
         } else {
             headerRefs.list.replaceChildren(cardMarkup(getCuttedArticle(params)));
+            initWeather();
         }
     } catch(err) {
         console.error(err);
@@ -284,6 +288,7 @@ async function onBack() {
         searchParams.decreaseOrderOfRequests();
     }
     headerRefs.list.replaceChildren( cardMarkup(getCuttedArticle(searchParams)));
+    initWeather();
 }
 async function onNext() {
     searchParams.increasePageByOne();
@@ -292,6 +297,7 @@ async function onNext() {
     .then(res => normalizedNews(res))
     .then(res => res.map((request) => searchParams.addRequest(request)));
     headerRefs.list.replaceChildren(cardMarkup(getCuttedArticle(searchParams)));
+    initWeather();
 }
 
 
