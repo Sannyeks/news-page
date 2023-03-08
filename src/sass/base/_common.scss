@@ -13,3 +13,16 @@
 .isActivePage {
     background-color: blue;
 }
+
+header{
+	border-bottom: 1px solid #00000033;
+	@include mobile {
+			height: 81px;
+		}
+	@include tablet {
+			height: 106px;
+		}
+	@include desktop {
+			height: 113px;
+		}
+}
