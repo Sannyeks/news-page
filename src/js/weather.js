@@ -1,4 +1,4 @@
-import axios from "axios";
+
 const apiKey = "73bd6bca6bd522830119f0c6decba840";
 const KELVIN = 273;
 
