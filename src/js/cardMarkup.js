@@ -179,10 +179,8 @@ export default function cardMarkup(items) {
           isFav ? '' : 'is-hidden'
         }" type="button" data-url="${web_url}">Remove from favorite</button>
       </div>
-
-      <h2 class="card__title">${headline}</h2>
+		<h2 class="card__title">${headline}</h2>
       <p class="card__article">${lenght}</p>
-
       <div class="card__info">
         <span class="card__info--date">${pub_date_fmt}</span>
         <a class="card__info--readmore" href="${web_url}" target="_blank">
