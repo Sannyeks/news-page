@@ -176,6 +176,6 @@
 
 .mobile-menu__open-btn:focus,
 .mobile-menu__open-btn:hover .mobile-menu__icon-open {
-  fill: #2196f3;
+  fill: var(--components-color);
   cursor: pointer;
 }
