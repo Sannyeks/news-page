@@ -28,120 +28,119 @@ headerRefs.inputRef.addEventListener('input', onHeaderInput);
 
 async function onRefBtn(event){
     if (event.target.nodeName === "BUTTON") {
-    const activeClass = 'isActivePage';
-    const refsChangedBtn = document.querySelectorAll("button[data-changedBtn]");
-    const refsBtns = document.querySelectorAll('#ref-btn');
+        const activeClass = 'isActivePage';
+        const refsChangedBtn = document.querySelectorAll("button[data-changedBtn]");
+        const refsBtns = document.querySelectorAll('#ref-btn');
+        console.log(refsBtns);
 
-    const firstCnangedBtn = new RefBtnClass(refsChangedBtn[0]);
-    const lastCnangedBtn = new RefBtnClass(refsChangedBtn[refsChangedBtn.length - 1]);
-    const firstBtn = new RefBtnClass(document.querySelector('.first-btn'));
-    const lastBtn = new RefBtnClass(document.querySelector('.last-btn'));
-    const backBtn = new RefBtnClass(document.getElementById('header-btn-back-js')); 
-    const nextBtn = new RefBtnClass(document.getElementById('header-btn-next-js'));
+        const firstCnangedBtn = new RefBtnClass(refsChangedBtn[0]);
+        const lastCnangedBtn = new RefBtnClass(refsChangedBtn[refsChangedBtn.length - 1]);
+        const firstBtn = new RefBtnClass(document.querySelector('.first-btn'));
+        const lastBtn = new RefBtnClass(document.querySelector('.last-btn'));
+        const backBtn = new RefBtnClass(document.getElementById('header-btn-back-js')); 
+        const nextBtn = new RefBtnClass(document.getElementById('header-btn-next-js'));
 
+        if(event.target.id === 'ref-btn') {
+            searchParams.reset();
+            searchParams.resetOrderOfRequests();
+            searchParams.setPage(event.target.value);
+            await renderCards(ENDPOINT,searchParams).then((res) => {
+                headerRefs.list.replaceChildren(cardMarkup(res));
+            });
 
-    if(event.target.id === 'ref-btn') {
-        searchParams.reset();
-        searchParams.resetOrderOfRequests();
-        searchParams.setPage(event.target.value);
-        await renderCards(ENDPOINT,searchParams).then((res) => {
-            console.log(res);
-            headerRefs.list.replaceChildren(cardMarkup(res));
-        });
-
-        for (let i = 0; i < refsBtns.length; i += 1) {
-            if (refsBtns[i].classList.contains(activeClass)){
-                refsBtns[i].classList.remove(activeClass);
+            for (let i = 0; i < refsBtns.length; i += 1) {
+                console.log(i);
+                if (refsBtns[i].classList.contains(activeClass)){
+                    refsBtns[i].classList.remove(activeClass);
+                }
             }
-        }
-        event.target.classList.add(activeClass);
+            event.target.classList.add(activeClass);
 
-        if(Number(event.target.value) !== 1) {
+            if(Number(event.target.value) !== 1) {
+                backBtn.enable();
+            } 
+            if(Number(event.target.value) !== Number(countQntOfPages())) {
+                nextBtn.enable();
+            } 
+            if(Number(event.target.value) === Number(countQntOfPages())) {
+                nextBtn.disable();
+            }
+            if(Number(event.target.value) === 1) {
+                backBtn.disable();
+            }
+        }  
+        if(event.target.id === 'header-btn-next-js') {
             backBtn.enable();
-        } 
-        if(Number(event.target.value) !== Number(countQntOfPages())) {
-            nextBtn.enable();
-        } 
-        if(Number(event.target.value) === Number(countQntOfPages())) {
-            nextBtn.disable();
-        }
-        if(Number(event.target.value) === 1) {
-            backBtn.disable();
-        }
-    }  
-    if(event.target.id === 'header-btn-next-js') {
-        backBtn.enable();
-        await onNext();
+            await onNext();
 
-        // Якщо активна перша кнопка
-    if(firstBtn.isActive()) {
-        firstBtn.noActive();
-        firstCnangedBtn.active();
-        return;
-    }
-        // Якщо активні кнопкa 2 і є статті
-    if (firstCnangedBtn.isActive() && Number(lastCnangedBtn.getValue()) !== Number(countQntOfPages() - 1)) {
-        increaseChangedBtn(refsChangedBtn);
-        return;
-    } 
-        // Якщо активні кнопкa 2-3 
-    for (let i = 0; i < refsChangedBtn.length - 1; i += 1) {
-        if (refsChangedBtn[i].classList.contains(activeClass)) {
-            refsChangedBtn[i].classList.remove(activeClass);
-            refsChangedBtn[(i + 1)].classList.add(activeClass);
+            // Якщо активна перша кнопка
+        if(firstBtn.isActive()) {
+            firstBtn.noActive();
+            firstCnangedBtn.active();
             return;
-            }
-    continue;
-    }
+        }
+            // Якщо активні кнопкa 2 і є статті
+        if (firstCnangedBtn.isActive() && Number(lastCnangedBtn.getValue()) !== Number(countQntOfPages() - 1)) {
+            increaseChangedBtn(refsChangedBtn);
+            return;
+        } 
+            // Якщо активні кнопкa 2-3 
+        for (let i = 0; i < refsChangedBtn.length - 1; i += 1) {
+            if (refsChangedBtn[i].classList.contains(activeClass)) {
+                    refsChangedBtn[i].classList.remove(activeClass);
+                    refsChangedBtn[(i + 1)].classList.add(activeClass);
+                    return;
+                }
+            continue;
+        }
         // Якщо активні кнопкa 4 і немає статтей
         if (lastCnangedBtn.isActive() && Number(lastCnangedBtn.getValue()) === Number(countQntOfPages() - 1)) {
-            lastCnangedBtn.noActive();
-            lastBtn.active();
-            nextBtn.disable();
-            return;
+                lastCnangedBtn.noActive();
+                lastBtn.active();
+                nextBtn.disable();
+                return;
         }   
-       
-            //  Якщо активні кнопкa 4 і є статті
-     if (lastCnangedBtn.isActive() && Number(lastCnangedBtn.getValue()) !== Number(countQntOfPages() - 1)){
-        increaseChangedBtn(refsChangedBtn);
-        return;
-     }
-     return;
-    } 
-    if(event.target.id === 'header-btn-back-js') {
-        // Якщо активна перша кнопка
-        if(!firstBtn.isActive()) {
-            await onBack();
-        }
-         // Якщо остання кнопка активна
-    if (lastBtn.isActive()) {
-        nextBtn.enable();
-        lastBtn.noActive();
-        lastCnangedBtn.active();
-        return;
-    }
-
-         // Якщо 3-4 кнопки активні
-    for (let i = refsChangedBtn.length - 1; i > 0; i -= 1) {
-        if (refsChangedBtn[i].classList.contains(activeClass)) {
-            refsChangedBtn[i].classList.remove(activeClass);
-            refsChangedBtn[(i - 1)].classList.add(activeClass);
+        
+                //  Якщо активні кнопкa 4 і є статті
+        if (lastCnangedBtn.isActive() && Number(lastCnangedBtn.getValue()) !== Number(countQntOfPages() - 1)){
+            increaseChangedBtn(refsChangedBtn);
             return;
+        }
+            return;
+        } 
+        if(event.target.id === 'header-btn-back-js') {
+            // Якщо активна перша кнопка
+            if(!firstBtn.isActive()) {
+                await onBack();
             }
-    continue;
-    }
-         // Якщо 2 кнопкa активнa i cтатті вгорі є
-    if (firstCnangedBtn.isActive() && Number(firstCnangedBtn.getValue()) !== 2) {
-        decreaseChangedBtn(refsChangedBtn);
-        return;
-    } else {
-        firstCnangedBtn.noActive();
-        firstBtn.active();
-        backBtn.disable();
-    }
+            // Якщо остання кнопка активна
+            if (lastBtn.isActive()) {
+                nextBtn.enable();
+                lastBtn.noActive();
+                lastCnangedBtn.active();
+                return;
+            }
+
+            // Якщо 3-4 кнопки активні
+            for (let i = refsChangedBtn.length - 1; i > 0; i -= 1) {
+                if (refsChangedBtn[i].classList.contains(activeClass)) {
+                        refsChangedBtn[i].classList.remove(activeClass);
+                        refsChangedBtn[(i - 1)].classList.add(activeClass);
+                        return;
+                    }
+            continue;
+            }
+            // Якщо 2 кнопкa активнa i cтатті вгорі є
+            if (firstCnangedBtn.isActive() && Number(firstCnangedBtn.getValue()) !== 2) {
+                decreaseChangedBtn(refsChangedBtn);
+                return;
+            } else {
+                firstCnangedBtn.noActive();
+                firstBtn.active();
+                backBtn.disable();
+            }
         }
     }
-
 }
 
 function onHeaderSearchSubmit (event) {
@@ -150,6 +149,7 @@ function onHeaderSearchSubmit (event) {
     if(searchParams.q) {
 
 			getNewsBySearch(ENDPOINT,searchParams).then((res) => {
+                
                 headerRefs.list.replaceChildren(cardMarkup(normalizedNews(res)));
 
                 headerRefs.list.querySelectorAll('.card__btn').forEach(
@@ -184,10 +184,32 @@ function onHeaderSearchSubmit (event) {
             //         console.log(event.target);
             //     }
                 // localStorage.setItem("favorite-key", JSON.stringify(res))
-            });
-        searchParams.reset();
-        renderCards(ENDPOINT,searchParams)
-        .then(res => {
+                return res;
+            })
+            .then((res) => {
+                searchParams.reset();
+                SearchInputParams.hits = res.response.meta.hits;
+                return normalizedNews(res);
+            })
+            .then((res) => {
+                res.map((request) => searchParams.addRequest(request));
+                return res;
+            })
+            .then(() => {
+                try{
+                    if(getCuttedArticle(searchParams).length === 0) {
+                        document.querySelector('.thumb').innerHTML = '';
+                        headerRefs.list.innerHTML = '<div class="default-img"></div>';
+                            return;
+                    } else {
+                        headerRefs.list.replaceChildren(cardMarkup(getCuttedArticle(searchParams)));
+                    }
+                } catch(err) {
+                    console.error(err);
+                }
+                return getCuttedArticle(searchParams);
+            }) 
+            .then(res => {
                 try{
                     const pagination = document.querySelector('.thumb');
                     pagination.addEventListener('click', onRefBtn);
@@ -197,7 +219,8 @@ function onHeaderSearchSubmit (event) {
                     } catch(err) {
                         console.log(err);
                     }
-        });
+            })
+            .catch(console.log);
         
     } else {
         console.log('Field can\`t be empty.');
@@ -225,13 +248,11 @@ async function renderCards(url,params) {
     try{
         if(getCuttedArticle(params).length === 0) {
             document.querySelector('.thumb').innerHTML = '';
-
             headerRefs.list.innerHTML = '<div class="default-img"></div>';
                 return;
         } else {
             headerRefs.list.replaceChildren(cardMarkup(getCuttedArticle(params)));
         }
-        
     } catch(err) {
         console.error(err);
     }
@@ -262,7 +283,6 @@ async function onBack() {
     } else {
         searchParams.decreaseOrderOfRequests();
     }
-
     headerRefs.list.replaceChildren( cardMarkup(getCuttedArticle(searchParams)));
 }
 async function onNext() {
