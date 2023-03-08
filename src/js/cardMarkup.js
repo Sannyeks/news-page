@@ -158,6 +158,7 @@ export default function cardMarkup(items) {
     const cardItem = document.createElement('li');
     cardItem.classList.add('card__item');
     cardItem.innerHTML = `<div class="card__wrapper">
+    <div>
       <div class="card-image__wrapper">
         <img
           class="card__image"
@@ -179,8 +180,13 @@ export default function cardMarkup(items) {
           isFav ? '' : 'is-hidden'
         }" type="button" data-url="${web_url}">Remove from favorite</button>
       </div>
-		<h2 class="card__title">${headline}</h2>
+
+      <div class="card__text">
+      <h2 class="card__title">${headline}</h2>
       <p class="card__article">${lenght}</p>
+      </div>
+      </div>
+
       <div class="card__info">
         <span class="card__info--date">${pub_date_fmt}</span>
         <a class="card__info--readmore" href="${web_url}" target="_blank">
