@@ -1,4 +1,26 @@
-<section class="gallery container">
+<!-- <section class="gallery container">
   <ul class="cards__list"></ul>
   <div class="calendar"></div>
+</section> -->
+
+<section class="filter-news">
+  <div class="container filter-news__container">
+    <div class="category">
+      <ul class="buttons-list"></ul>
+      <button
+        class="category__btn"
+        id="btn-open-category"
+        type="button"
+        aria-expanded="true"
+        aria-controls="btn-menu"
+      >
+        <svg class="arrow-icon" width="14" height="14">
+          <use href="./images/icons.svg#icon-arrow_down_svg"></use>
+        </svg>
+      </button>
+      <ul class="category__menu"></ul>
+    </div>
+    <div class="calendar"></div>
+  </div>
 </section>
+<script type="module" src="./js/showCategories.js"></script>
