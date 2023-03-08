@@ -122,7 +122,7 @@ const READ_KEY = 'read-key';
 function formatDate(dt) {
  
 
-  return `${dt.getFullYear()}/${dt.getMonth()}/${dt.getDate()}`
+  return (dt.toLocaleDateString("en-GB"))
 }
 
 export default function cardMarkup(items) {
@@ -180,11 +180,13 @@ export default function cardMarkup(items) {
           isFav ? '' : 'is-hidden'
         }" type="button" data-url="${web_url}">Remove from favorite</button>
       </div>
+
       <div class="card__text">
       <h2 class="card__title">${headline}</h2>
       <p class="card__article">${lenght}</p>
       </div>
       </div>
+
       <div class="card__info">
         <span class="card__info--date">${pub_date_fmt}</span>
         <a class="card__info--readmore" href="${web_url}" target="_blank">

@@ -5,19 +5,46 @@
     
 .underfined___title {
     display: none;
-    }
+     }
 .underfined___title.visible {
     display: block;
-    }
      }
+      }
 
 .favorite-container {
-    .card__item--weather{
-        display: none;
-        }
-    .btn-add {
-        display: none;
-        }
+
+.card__list {
+    gap: 28px;
+@media screen and (min-width: 768px) {
+    gap: 30px;
     }
 
-  
+@media screen and (min-width: 1280px) {
+    gap: 30px;
+    }
+
+}
+
+.card__item--weather{
+    display: none;
+    }
+.btn-add {
+    display: none;
+    }      
+        
+.card__item {
+    list-style: none;
+    }
+}
+
+.card__btn.btn-remove {
+    width: 168px;
+    } 
+.card__btn.btn-remove::after {
+    content: '';
+    display: flex;
+    width: 16px;
+    height: 16px;
+    background-image: url('../images/svg/dar_heart_svg.svg');
+    margin-left: 6px;
+    }   

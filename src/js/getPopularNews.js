@@ -1,5 +1,5 @@
 import cardMarkup from "./cardMarkup";
-
+import {initWeather} from './weather'
 
 const apiKey = '3HHtrx1v9QZUfdmskYGXIqIWRgxdBdcv';
 const url = `https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=${apiKey}`
@@ -53,6 +53,7 @@ async function getMostPopularArticles() {
 getMostPopularArticles().then(res => {
 	const ulEl = document.querySelector('.popular-articles__list');
 	ulEl.replaceChildren(cardMarkup(res));
+	initWeather()
 })
 
 // getMostPopularArticles().then(res => {
