@@ -4,14 +4,84 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Read</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Poppins&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <include src="./partials/header.html"></include>
-    <include src="./partials/burger-menu.html"></include>
-    <include src="./partials/negative-search.html"></include>
+    <!-- Header and mobile menu -->
+    <header class="main-header">
+      <div class="container header-main-nav">
+        <nav class="main-nav">
+          <a href="/src/index.html" class="logo link">
+            <span class="news-logo">News</span>
+          </a>
 
+          <ul class="site-nav list">
+            <li class="item">
+              <a href="/src/index.html" class="link">Home</a>
+            </li>
+            <li class="item">
+              <a href="/src/favorite.html" class="link">Favorite</a>
+            </li>
+            <li class="item">
+              <a href="/src/read.html" class="link current">Read</a>
+            </li>
+          </ul>
+        </nav>
+        <form class="header-search-form" id="header-form-js">
+          <div class="header-search__field">
+            <input
+              type="text"
+              name="searchQuery"
+              autocomplete="off"
+              placeholder="Search"
+              class="header-search__input"
+              id="header-input-js"
+              autofocus
+            />
+            <button type="submit" class="header-search-btn" id="header-btn-js">
+              <svg class="icon">
+                <use xlink:href="images/icons.svg#icon-search"></use>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <div class="style-type">
+          <label for="switch-style" class="style-type__value">Light</label>
+          <input type="checkbox" id="switch-style" class="style-type__input" />
+          <label for="switch-style" class="style-type__label">Toggle</label>
+          <label for="switch-style" class="style-type__value">Dark</label>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <button
+          class="mobile-menu__open-btn js-open-menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg class="modal-menu__icon-open">
+            <use href="images/icons.svg#icon-burger"></use>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <include src="./partials/burger-menu.html"></include>
+    <main>
+      <!-- Read Section -->
+      <section class="read-section">
+        <div class="container">
+          <include src="./partials/read.html"></include>
+        </div>
+      </section>
+      <include src="./partials/negative-search.html"></include>
+    </main>
     <include src="./partials/footer.html"></include>
+    <!-- Scripst -->
+    <script src="./js/read.js" type="module"></script>
   </body>
 </html>

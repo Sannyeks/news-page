@@ -122,7 +122,7 @@ const READ_KEY = 'read-key';
 function formatDate(dt) {
  
 
-  return `${dt.getFullYear()}/${dt.getMonth()}/${dt.getDate()}`
+  return (dt.toLocaleDateString("en-GB"))
 }
 
 export default function cardMarkup(items) {
