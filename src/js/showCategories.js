@@ -1,5 +1,6 @@
 import { markupCategories, markupNameButton } from './markupCategoriesFilter.js';
 import cardMarkup from "./cardMarkup";
+import {initWeather} from './weather'
 
 const categoriesList = document.querySelector('.buttons-list');
 const categoriesBtn = document.querySelector('#btn-open-category');
@@ -47,7 +48,8 @@ function onSearchNewsBtn(event) {
   // console.log(currentButtonCategory);
   getNewsByFilter(currentButtonCategory).then(res => {
 	const ulEl = document.querySelector('.popular-articles__list');
-	ulEl.replaceChildren(cardMarkup(res));
+    ulEl.replaceChildren(cardMarkup(res));
+    initWeather()
 })
   // cardMarkup(currentButtonCategory);
 };
@@ -60,6 +62,7 @@ function onSearchNewsMenu(event) {
   getNewsByFilter(currentButtonCategory).then(res => {
     const ulEl = document.querySelector('.popular-articles__list');
     ulEl.replaceChildren(cardMarkup(res));
+    initWeather()
   });
   // cardMarkup(currentButtonCategory);
  
