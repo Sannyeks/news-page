@@ -1,16 +1,14 @@
 @import './utilits/variables';
 @import './utilits/mixins';
+@import './base/common';
+@import './base/reset';
+@import './common';
 
 @import './components/container';
 @import './components/article-card';
 @import './components/negative-search';
 @import './components/section';
 @import './components/calendar';
-
-@import './common';
-
-@import './base/common';
-@import './base/reset';
 
 @import './layouts/header';
 @import './layouts/home-page-categories';
