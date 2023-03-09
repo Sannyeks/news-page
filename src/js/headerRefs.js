@@ -5,5 +5,6 @@ export default headerRefs = {
     list: document.querySelector('.cards__list'),
     backArrow:document.getElementById('back-arrow'),
     nextArrow:document.getElementById('next-arrow'),
+    paginator:document.querySelector('.thumb'),
 };
 

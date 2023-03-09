@@ -1,6 +1,8 @@
 import { markupCategories, markupNameButton } from './markupCategoriesFilter.js';
 import cardMarkup from "./cardMarkup";
-import {initWeather} from './weather'
+import {initWeather} from './weather';
+import headerRefs from "./headerRefs";
+
 
 const categoriesList = document.querySelector('.buttons-list');
 const categoriesBtn = document.querySelector('#btn-open-category');
@@ -29,7 +31,7 @@ function onToggleCategoriesMenu() {
 };
 
 window.onclick = event => {
-  if (!event.target.matches('.category__btn')) {
+    if (!event.target.matches('.category__btn')) {
     if (!event.target.matches('.btn-item')) {
       if (categoriesMenu.classList.contains('is-open-categories')) {
         categoriesMenu.classList.remove('is-open-categories');
@@ -37,6 +39,7 @@ window.onclick = event => {
     }
   }
   if (!event.target.matches('.category__btn')) {
+    
     if (arrowBtnCategories.classList.contains('open-categories')) {
       arrowBtnCategories.classList.remove('open-categories');
     }
@@ -44,6 +47,7 @@ window.onclick = event => {
 };
 
 function onSearchNewsBtn(event) {
+  headerRefs.paginator.innerHTML = '';
   const currentButtonCategory = event.target.dataset.btn;
   // console.log(currentButtonCategory);
   getNewsByFilter(currentButtonCategory).then(res => {
@@ -62,7 +66,9 @@ function onSearchNewsMenu(event) {
   getNewsByFilter(currentButtonCategory).then(res => {
     const ulEl = document.querySelector('.popular-articles__list');
     ulEl.replaceChildren(cardMarkup(res));
-    initWeather()
+    initWeather();
+    
+ 
   });
   // cardMarkup(currentButtonCategory);
  
@@ -83,25 +89,22 @@ async function getNewsByFilter(currentButtonCategory) {
 	const response = await fetch(`https://api.nytimes.com/svc/news/v3/content/nyt/${category}.json?api-key=${apiKey}`);
 	const data = await response.json();
 	const { results } = data;
-	const resultArticles = []
+	const resultArticles = [];
 
-	// console.log(results)
-	const image = results[0].multimedia[2].url;
-  // console.log(image);
-  // ========================
-	// let metadata = 'media-metadata';
-	// console.log(results[0].media[0]['media-metadata'][2].url);
+	  results.map(({ title, url, published_date, abstract, section, id, multimedia
+    }) => {
+      const image = (multimedia)
+      ? multimedia[3].url
+      : 'https://as1.ftcdn.net/v2/jpg/00/77/50/78/500_F_77507884_B00iVspJkgxbh6o1JuKza9qYpioCZ9ja.jpg';
+  
 
-	const articles = results.map(({ title, url, published_date, abstract, section, id }) => {
-		// const image = media[0]['media-metadata'][2].url;
-		// console.log(image);
 		const article = {
 		headline: title,
 		web_url: url, 
       pub_date: published_date,
       lead_paragraph: abstract,
       news_desk: section, 
-      bigMobileImg: 'https://static01.nyt.com/images/2023/03/07/multimedia/-01WELL-AGING-EXERCISES21-bzjq/-01WELL-AGING-EXERCISES21-bzjq-mediumThreeByTwo440.jpg',
+      bigSquareImg: image,
       // smallMobileImg: image,
       // smallSquareImg: image,
       // bigSquareImg: image,
@@ -110,6 +113,7 @@ async function getNewsByFilter(currentButtonCategory) {
 
 		resultArticles.push(article);
   } ); 
+  resultArticles.length = upadatePerPage();
 	// console.log(resultArticles);
 	return resultArticles;
 }
@@ -118,3 +122,20 @@ async function getNewsByFilter(currentButtonCategory) {
 // 	const ulEl = document.querySelector('.popular-articles__list');
 // 	ulEl.replaceChildren(cardMarkup(res));
 // })
+
+function upadatePerPage() {
+	const mediaQueryDesktop = window.matchMedia('(min-width: 1280px)');
+	const mediaQueryTablet = window.matchMedia('(min-width: 768px)');
+	const mediaQueryMobile = window.matchMedia('(max-width: 767px)');
+	
+	if (mediaQueryDesktop.matches) {
+	  return 9;
+	} 
+	if (mediaQueryTablet.matches) {
+	  return 6;
+	} 
+	if (mediaQueryMobile.matches) {
+	  return 3;
+	} 
+
+}
