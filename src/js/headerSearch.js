@@ -10,6 +10,7 @@ import cardMarkup from "./cardMarkup";
 import headerRefs from "./headerRefs";
 import {initWeather} from './weather';
 import { addItem, removeItem } from "./localstorage";
+import smoothScroll from "./smoothScroll";
 
 const FAVORITE_KEY = "favorite-key";
 const READ_KEY = "read-key";
@@ -38,7 +39,7 @@ async function onRefBtn(event){
         const lastBtn = new RefBtnClass(document.querySelector('.last-btn'));
         const backBtn = new RefBtnClass(document.getElementById('header-btn-back-js')); 
         const nextBtn = new RefBtnClass(document.getElementById('header-btn-next-js'));
-
+        smoothScroll();
         if(event.target.id === 'ref-btn') {
             searchParams.reset();
             searchParams.resetOrderOfRequests();
