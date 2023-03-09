@@ -24,8 +24,8 @@ weatherContainer.innerHTML = `<div class="weather-container__all">
       </div>
       <div class="weather-icon">
         <img
-          src="/src/images/svg/unknown.png"
-          alt=""
+          src="http://openweathermap.org/img/wn/01d@4x.png"
+          alt="no weather icon"
           height="155"
           width="165"
         />

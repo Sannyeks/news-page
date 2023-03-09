@@ -2,6 +2,9 @@ svg {
   --size: 1em;
   width: var(--size);
   height: var(--size);
+  @media screen and (min-width: 480px) {
+    --size: 25px;
+  }
 }
 
 .container {
@@ -337,7 +340,7 @@ svg {
 
 .style-type .style-type__value {
   @media screen and (max-width: 1279px) {
-    font-size: 7px;
+    font-size: 15px;
   }
 }
 
