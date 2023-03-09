@@ -2,6 +2,7 @@ import cardMarkup from "./cardMarkup";
 import {initWeather} from './weather';
 import getNewsBySearch from "./getNewsBySearch";
 import headerRefs from "./headerRefs";
+import smoothScroll from "./smoothScroll";
 
 
 const apiKey = '3HHtrx1v9QZUfdmskYGXIqIWRgxdBdcv';
@@ -100,16 +101,19 @@ function onNextArrow() {
 		popularArticles.resetLimitOrder();
 	}
 	if(popularArticles.page <= popularArticles.getPages()) {
+		
 		popularArticles.increasePage();
 		headerRefs.backArrow.removeAttribute('disabled');
 		headerRefs.list.replaceChildren(cardMarkup(normalizedPopularNews(popularArticles.sliceBody())));
 		initWeather();
 		popularArticles.increaseStep();
+		
 		} 
 	if(popularArticles.page > popularArticles.getPages()) {
 		popularArticles.cutToLimitOrder();
 		headerRefs.nextArrow.setAttribute('disabled',true);
 	}
+	smoothScroll();
 }
 
 function onBackArrow() {
@@ -129,7 +133,7 @@ function onBackArrow() {
 		popularArticles.firstNews = 0;
 	}
 
-	
+	smoothScroll();
 }
 
 function normalizedPopularNews(articles) {
