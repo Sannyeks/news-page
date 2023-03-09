@@ -14,15 +14,15 @@ function upadatePerPage() {
 	const mediaQueryMobile = window.matchMedia('(max-width: 767px)');
 	
 	if (mediaQueryDesktop.matches) {
-		popularArticles.perPage = 9;
+		popularArticles.perPage = 8;
 	  return;
 	} 
 	if (mediaQueryTablet.matches) {
-		popularArticles.perPage = 6;
+		popularArticles.perPage = 7;
 	  return;
 	} 
 	if (mediaQueryMobile.matches) {
-		popularArticles.perPage  = 3;
+		popularArticles.perPage  = 4;
 	  return;
 	} 
 
