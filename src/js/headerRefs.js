@@ -1,4 +1,4 @@
-export default headerRefs = {
+const headerRefs = {
     formRef: document.getElementById('header-form-js'),
     inputRef: document.getElementById('header-input-js'),
     btnRef: document.getElementById('header-btn-js'),
@@ -8,4 +8,6 @@ export default headerRefs = {
     paginator:document.querySelector('.thumb'),
     arrowToTop:document.querySelector('.arrows'),
 };
+
+export{headerRefs};
 
