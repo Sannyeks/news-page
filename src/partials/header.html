@@ -1,55 +1,66 @@
 <script type="module" src="./js/headerSearch.js"></script>
 <header class="main-header">
-    <div class="container header-main-nav">
-        <nav class="main-nav">
-            <a href="/src/index.html" class="logo link">
-                <span class="news-logo">News</span>
-            </a>
+  <div class="container header-main-nav">
+    <nav class="main-nav">
+      <a href="/src/index.html" class="logo link">
+        <span class="news-logo">News</span>
+      </a>
 
-            <ul class="site-nav list">
-                <li class="item">
-                    <a href="/src/index.html" class="link current">Home</a>
-                </li>
-                <li class="item">
-                    <a href="/src/favorite.html" class="link">Favorite</a>
-                </li>
-                <li class="item">
-                    <a href="/src/read.html" class="link">Read</a>
-                </li>
-            </ul>
-        </nav>
-        <form class="header-search-form" id="header-form-js">
-            <div class="header-search__field">
-                <input type="text" name="searchQuery" autocomplete="off" placeholder="Search" class="header-search__input" id="header-input-js" autofocus />
-                <button type="submit" class="header-search-btn" id="header-btn-js">
-                  <svg class="icon"><use xlink:href="images/icons.svg#icon-search"></use></svg>
-                </button>
-            </div>
-        </form>
-
-        <div class="style-type">
-            <label for="switch-style" class="style-type__value">Light</label>
-            <input type="checkbox" id="switch-style" class="style-type__input" />
-            <label for="switch-style" class="style-type__label">Toggle</label>
-            <label for="switch-style" class="style-type__value">Dark</label>
-        </div>
-
-        <!-- MOBILE MENU -->
-        <button class="mobile-menu__open-btn js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
-          <svg class="modal-menu__icon-open">
-            <use href="images/icons.svg#icon-burger"></use>
+      <ul class="site-nav list">
+        <li class="item">
+          <a href="/src/index.html" class="link current">Home</a>
+        </li>
+        <li class="item">
+          <a href="/src/favorite.html" class="link">Favorite</a>
+        </li>
+        <li class="item">
+          <a href="/src/read.html" class="link">Read</a>
+        </li>
+      </ul>
+    </nav>
+    <form class="header-search-form" id="header-form-js">
+      <div class="header-search__field">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search"
+          class="header-search__input"
+          id="header-input-js"
+          autofocus
+        />
+        <button type="submit" class="header-search-btn" id="header-btn-js">
+          <svg class="icon">
+            <use xlink:href="images/icons.svg#icon-search"></use>
           </svg>
         </button>
+      </div>
+    </form>
+    <!-- =========================================================================================== -->
+    <div class="style-type">
+      <label for="switch-style" class="style-type__value light">Light</label>
+      <input type="checkbox" id="switch-style" class="style-type__input" />
+      <label for="switch-style" class="style-type__label">Toggle</label>
+      <label for="switch-style" class="style-type__value dark">Dark</label>
     </div>
+
+    <!-- MOBILE MENU -->
+    <button
+      class="mobile-menu__open-btn js-open-menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg class="modal-menu__icon-open">
+        <use href="images/icons.svg#icon-burger"></use>
+      </svg>
+    </button>
+  </div>
 </header>
 
-
-
-
 <script>
-    let btnSearch = document.querySelector('#header-btn-js');
+  let btnSearch = document.querySelector('#header-btn-js');
 
-    btnSearch.onclick = () => {
-        document.querySelector('#header-input-js').classList.add('active');
-    }
+  btnSearch.onclick = () => {
+    document.querySelector('#header-input-js').classList.add('active');
+  };
 </script>

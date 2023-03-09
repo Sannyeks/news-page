@@ -6,12 +6,12 @@
 
 
 @media screen and (min-width: 768px) {
-  margin-top: 48px;
+  margin-top: 40px;
   margin-bottom: 101px;
 } 
 
 @media screen and (min-width: 1280px) {
-   margin-top: 15px;
+   margin-top: 60px;
    margin-bottom: 60px;
 }
  
@@ -24,7 +24,7 @@
 .underfined___title {
   font-family: Manrope;
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--primary-text-color);
   font-size: 20px;
   line-height: 27px; 
 
@@ -47,14 +47,28 @@
   align-items: center;
   justify-content: center;
   width: 248px;
-  height: auto;
+  height: 198px;
+  background-image: url(../images/mobile@2x.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 
 @media screen and (min-width: 768px) {
-  width: 270px;
+  width: 560px;
+  height: 444px;
+  background-image: url(../images/tablet@2x.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 @media screen and (min-width: 1280px) {
-  width: 350px;
+  width: 601px;
+  height: 478px;
+  background-image: url(../images/desktop@2x.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 }

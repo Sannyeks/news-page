@@ -159,13 +159,15 @@
 .arrow-icon {
     margin-left: 10px;
     fill: var(--components-color);
-    pointer-events: none;
+	 width: 14px;
+	 height: 14px;
+	transition-duration: .25s;
+	transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 }
 
 .arrow-icon.open-categories {
     transform: rotate(180deg);
     fill: var(--white-color);
-    pointer-events: none;
 }
 
 .category__btn:hover .arrow-icon,
@@ -174,6 +176,4 @@
 
     transition-duration: 0.25s;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-    pointer-events: none;
 }

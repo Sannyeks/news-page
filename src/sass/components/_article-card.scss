@@ -18,7 +18,7 @@
 .card__item--weather {
   background-color: #00dd73;
   width: 288px;
-  height: 630px;
+  height: 675px;
 
   @include tablet {
     width: 353px;
@@ -50,10 +50,14 @@
 
   @include tablet {
     width: 353px;
+    height: 395px;
+    object-fit: cover;
   }
 
   @include desktop {
     width: 395px;
+    height: 395px;
+    object-fit: cover;
   }
 }
 .card-jobsearching {
@@ -98,7 +102,7 @@
   display: block;
   width: 18px;
   height: 18px;
-  background-image: url('../images/svg/heart_svg.svg');
+  background-image: url('../images/svg/galochka.svg');
 
   position: absolute;
   right: -24px;
@@ -157,7 +161,7 @@
   font-weight: 700;
   letter-spacing: -0.01em;
 
-  color: var(--dark-color);
+  color: var(--primary-text-color);
   margin-top: 20px;
 
   font-size: 24px;
@@ -181,7 +185,7 @@
   font-size: 14px;
   line-height: 19px;
 
-  color: var(--dark-color);
+  color: var(--primary-text-color);
 
   @include tablet {
     font-size: 16px;

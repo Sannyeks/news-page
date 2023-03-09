@@ -15,12 +15,14 @@
         aria-controls="btn-menu"
       >
         <svg class="arrow-icon" width="14" height="14">
-          <use href="./images/icons.svg#icon-arrow_down_svg"></use>
+          <use href="/src/images/icons.svg#icon-arrow_down_svg"></use>
         </svg>
       </button>
       <ul class="category__menu"></ul>
     </div>
-    <div class="calendar"></div>
+    <div class="calendar-component-wrapper">
+      <include src="./partials/calendar.html"></include>
+    </div>
   </div>
 </section>
 <script type="module" src="./js/showCategories.js"></script>

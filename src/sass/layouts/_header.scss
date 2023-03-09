@@ -2,6 +2,9 @@ svg {
   --size: 1em;
   width: var(--size);
   height: var(--size);
+  @media screen and (min-width: 480px) {
+    --size: 25px;
+  }
 }
 
 .container {
@@ -59,7 +62,7 @@ svg {
 /* SITE NAV */
 
 .news-logo {
-  color: #212121;
+  color: var(--primary-text-color);
   font-style: normal;
   font-weight: 700;
   font-size: 42px;
@@ -104,7 +107,9 @@ svg {
     display: none;
   }
 }
-
+.list{
+	color: var(--primary-text-color);
+}
 // ====================================================
 .search-box {
   border-radius: 40px;
@@ -183,6 +188,10 @@ svg {
   fill: currentColor;
 }
 
+#icon-search {
+	fill: var(--primary-text-color);
+}
+
 /* =========================================================== */
 
 .search-container {
@@ -210,8 +219,8 @@ svg {
   border-radius: 20px;
   border: none;
   outline: none;
-  background-color: #f4f4f4;
-  border: 1px solid rgba(17, 19, 33, 0.2);
+  background-color: var(--pimary-bg-color);
+  border: 1px solid var(--primary-text-color);
   padding-top: 6px;
   font: inherit;
   transition: 0.25s;
@@ -334,10 +343,15 @@ svg {
   display: flex;
   align-items: center;
 }
-
+.light{
+	color: var(--primary-switcher-color);
+}
+.dark {
+	color: var(--secondary-switcher-color);
+}
 .style-type .style-type__value {
   @media screen and (max-width: 1279px) {
-    font-size: 7px;
+    font-size: 15px;
   }
 }
 
@@ -367,7 +381,7 @@ svg {
   width: var(--input-width);
   height: var(--input-height);
   background: var(--input-bg-light);
-  border: var(--input-bd-size) solid var(--input-bd-color);
+  border: var(--input-bd-size) solid var(--primary-swither-border-color);
   display: block;
   border-radius: 100px;
   position: relative;

@@ -1,0 +1,67 @@
+<div class="app-calendar">
+  <p class="calendar-form__text">Search date news</p>
+  <div class="calendar-form">
+    <div class="input-form" data-modal-open data-modal-close>
+      <svg 
+          class="calendar__button-calendar" 
+          width="14" 
+          height="14">
+          <use href="./images/icons.svg#icon-calendar_svg"></use>
+      </svg>
+      <input
+        readonly
+        id="input-picker"
+        class="calendar-input datepicker-here"
+        placeholder="Enter date..."
+      />
+      <svg 
+          class="calendar__button-arrow" 
+          width="14" 
+          height="14">
+          <use href="./images/icons.svg#icon-arrow_down_svg"></use>
+      </svg>
+    </div>
+    <div class="calendar-wrapper is-hidden-wrapper" data-modal>
+      <div class="calendar-wrapper__container">
+        <div class="calendar-switcher">
+          <p class="current-date"></p>
+          <div class="calendar-icons">
+          <span id="prev" class="material-symbols-rounded"> 
+            <svg
+              class="calendar__button-arrow-icon"
+              width="14"
+              height="14"
+              transform="rotate(90)">
+            <use href="./images/icons.svg#icon-arrow_down_svg"></use>
+            </svg>
+          </span>
+            <span id="next" class="material-symbols-rounded">
+            <svg
+              class="calendar__button-arrow-icon"
+              width="14"
+              height="14"
+              transform="rotate(270)">
+              <use href="./images/icons.svg#icon-arrow_down_svg"></use>
+             </svg>
+          </span>
+          </div>
+        </div>
+        <div class="calendar">
+          <ul class="calendar-weeks__list">
+            <li class="calendar-weeks__item">Sun</li>
+            <li class="calendar-weeks__item">Mon</li>
+            <li class="calendar-weeks__item">Tue</li>
+            <li class="calendar-weeks__item">Wed</li>
+            <li class="calendar-weeks__item">Thu</li>
+            <li class="calendar-weeks__item">Fri</li>
+            <li class="calendar-weeks__item">Sat</li>
+          </ul>
+          <ul class="days"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script type="module" src='./js/calendar.js'></script>

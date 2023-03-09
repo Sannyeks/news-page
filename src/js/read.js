@@ -1,5 +1,5 @@
 import { loadItems } from "./localstorage";
-import cardMarkup from './cardMarkup';
+import cardMarkupFavPage from './cardMarkupFavPage';
 
 const READ_KEY = 'read-key';
 
@@ -20,7 +20,7 @@ function init () {
 
     const readNewsItems = document.createElement('div');
     readNewsItems.classList.add("read-news__items", "hidden" );
-    readNewsItems.appendChild( cardMarkup(loadedItemsByDate[groupedDatesKeys]))
+    readNewsItems.appendChild( cardMarkupFavPage(loadedItemsByDate[groupedDatesKeys]))
 
     list.appendChild(readNewsItems)
   }

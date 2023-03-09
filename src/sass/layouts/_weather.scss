@@ -137,11 +137,14 @@
 	top: 0;
 	left: 0;
 	margin: 0;
-	width: 353px;
-	height: 675px;
+	width: 288px;
+	height: 469px;
 	padding: 45px 35px 60px 35px;
 
-	@include tablet {}
+	@include tablet {
+		width: 353px;
+		height: 675px;
+	}
 
 	@include desktop {
 		width: 395px;

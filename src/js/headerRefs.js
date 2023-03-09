@@ -10,4 +10,3 @@ const headerRefs = {
 };
 
 export {headerRefs};
-

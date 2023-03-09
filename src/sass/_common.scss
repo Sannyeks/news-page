@@ -4,7 +4,7 @@
 body {
 	font-family: Monrope, sans-serif;
 	font-weight: 400;
-	background: var(--bg-color);
+	background: var(--pimary-bg-color);
 	margin: 0;
 }
 
@@ -29,4 +29,18 @@ body {
 	opacity: 0;
 	pointer-events: none;
 	visibility: hidden;
+}
+
+.dark-theme{
+	--pimary-bg-color: #2E2E2E;
+	--secondary-bg-color: #F4F4F4;
+	
+	--primary-text-color: #F4F4F4;
+	--secondary-text-color: #111321;
+
+	--primary-switcher-color: #5F6775;
+	--secondary-switcher-color: #4B48DB;
+
+	--primary-swither-border-color: #FFFFFF;
+	--secondary-swither-border-color: #4B48DB;
 }
