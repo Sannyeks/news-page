@@ -153,7 +153,7 @@ export default function cardMarkup(items) {
     const isReaded = hasItem(READ_KEY, item => item.web_url == web_url);
 
     const pub_date_fmt = formatDate(new Date(pub_date));
-    const img = !bigSquareImg ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9eXq6h_EHL7Iu-tVrAWQPJ4ozAiL3y5NY2m5jmcw&s' : `https://www.nytimes.com/${bigSquareImg}`;
+    const img = !bigSquareImg ? 'https://as1.ftcdn.net/v2/jpg/00/77/50/78/500_F_77507884_B00iVspJkgxbh6o1JuKza9qYpioCZ9ja.jpg' : bigSquareImg;
     
     const cardItem = document.createElement('li');
     cardItem.classList.add('card__item');
