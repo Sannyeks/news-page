@@ -1,5 +1,5 @@
-// export { cardMarkupFavPage };
-import cardMarkup from './cardMarkup';
+
+import cardMarkupFavPage from './cardMarkupFavPage';
 const favoriteContainer = document.querySelector('.favorite-container');
 const favoriteNotFound = document.querySelector('.favorite-not-found');
 
@@ -8,7 +8,7 @@ const FAVORITE_KEY = 'favorite-key';
 const favoriteNews = localStorage.getItem(FAVORITE_KEY);
 let parseFavoriteNews = JSON.parse(favoriteNews);
 
-favoriteContainer.replaceChildren(cardMarkup(parseFavoriteNews));
+favoriteContainer.replaceChildren(cardMarkupFavPage(parseFavoriteNews));
 
 favoriteContainer.addEventListener('click', removeFromFavorite);
 function removeFromFavorite(event) {
@@ -20,7 +20,7 @@ function removeFromFavorite(event) {
 
       parseFavoriteNews.splice(favoriteCardIndex, 1);
       localStorage.setItem(FAVORITE_KEY, JSON.stringify(parseFavoriteNews));
-      favoriteContainer.replaceChildren(cardMarkup(parseFavoriteNews));
+      favoriteContainer.replaceChildren(cardMarkupFavPage(parseFavoriteNews));
     }
   });
 }
@@ -39,4 +39,4 @@ function favoriteNotFoundShow() {
 
 favoriteNotFoundShow();
 
-// export { cardMarkupFavPage };
+
