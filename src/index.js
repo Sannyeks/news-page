@@ -6,3 +6,9 @@
 // const ulEl = document.querySelector('.cards__list');
 
 // ulEl.insertAdjacentHTML('beforeend', cardMarkup());
+
+const switcher = document.getElementById('switch-style')
+
+switcher.onclick = function(){
+	document.body.classList.toggle("dark-theme")
+}

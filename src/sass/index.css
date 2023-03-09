@@ -1,12 +1,20 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Roboto&display=swap');
 :root {
-  --bg-color: #F4F4F4;
-  --components-color: #4440F6;
+  --bg-color: #f4f4f4;
+  --components-color: #4440f6;
   --dark-color: #111321;
-  --grey-color: #A8A8A8;
-  --white-color: #FFFFFF;
-  --weather-bg-color: #4440F6;
+  --grey-color: #a8a8a8;
+  --white-color: #ffffff;
+  --weather-bg-color: #4440f6;
+  --pimary-bg-color: #f4f4f4;
+  --secondary-bg-color: #686868;
+
+  --primary-text-color: #111321;
+  --secondary-text-color: #f4f4f4;
+
+  --primary-switcher-color: #4b48db;
+  --secondary-switcher-color: #5f6775;
 }
 
 .container {
@@ -109,11 +117,11 @@
 }
 
 .card-already__read::after {
-  content: "";
+  content: '';
   display: block;
   width: 18px;
   height: 18px;
-  background-image: url("../images/svg/heart_svg.svg");
+  background-image: url('../images/svg/heart_svg.svg');
   position: absolute;
   right: -24px;
   top: 0;
@@ -139,11 +147,11 @@
 }
 
 .card__btn::after {
-  content: "";
+  content: '';
   display: flex;
   width: 15px;
   height: 15px;
-  background-image: url("../images/svg/heart_svg.svg");
+  background-image: url('../images/svg/heart_svg.svg');
   margin-left: 6px;
 }
 
@@ -318,7 +326,7 @@ body {
   padding: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -482,7 +490,7 @@ svg {
 }
 
 .current::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 28px;
@@ -688,7 +696,7 @@ svg {
 
 .material-icons {
   position: absolute;
-  font-family: "Material Icons";
+  font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -699,7 +707,7 @@ svg {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: "liga";
+  -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
 
@@ -766,7 +774,7 @@ svg {
   margin-left: 14px;
 }
 
-.style-type .style-type__input[type=checkbox] {
+.style-type .style-type__input[type='checkbox'] {
   height: 0;
   width: 0;
   visibility: hidden;
@@ -786,7 +794,7 @@ svg {
 }
 
 .style-type .style-type__label:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 1px;
   left: 1px;
@@ -820,7 +828,7 @@ svg {
   height: 675px;
   background-color: var(--components-color);
   padding: 40px 32px 60px 32px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: var(--white-color);
   display: flex;
   flex-direction: column;
@@ -889,9 +897,9 @@ svg {
   width: 165px;
   height: 155px;
   -o-object-position: 50% 50%;
-     object-position: 50% 50%;
+  object-position: 50% 50%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .day,
@@ -940,8 +948,8 @@ svg {
   height: 675px;
   padding: 45px 35px 60px 35px;
   margin: 0;
-  font-family: "Roboto", sans-serif;
-  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1107,11 +1115,13 @@ svg {
   margin-right: 14px;
   font-size: 32px;
 }
-.modal-menu__nav-link:hover, .modal-menu__nav-link.current {
+.modal-menu__nav-link:hover,
+.modal-menu__nav-link.current {
   background-color: var(--components-color);
   color: var(--white-color);
 }
-.modal-menu__nav-link:hover .icon, .modal-menu__nav-link.current .icon {
+.modal-menu__nav-link:hover .icon,
+.modal-menu__nav-link.current .icon {
   stroke: var(--white-color);
 }
 
@@ -1150,7 +1160,7 @@ svg {
 .modal-menu__icon:not(:last-child):after {
   display: inline-block;
   position: absolute;
-  content: "";
+  content: '';
   height: 100%;
   background-color: rgba(33, 33, 33, 0.2);
   width: 1px;
@@ -1212,5 +1222,4 @@ svg {
 }
 .favorite-container .btn-add {
   display: none;
-
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */
