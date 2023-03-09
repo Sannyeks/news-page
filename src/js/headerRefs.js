@@ -6,6 +6,7 @@ const headerRefs = {
     backArrow:document.getElementById('back-arrow'),
     nextArrow:document.getElementById('next-arrow'),
     paginator:document.querySelector('.thumb'),
+    arrowToTop:document.querySelector('.arrows'),
 };
 
 export {headerRefs}

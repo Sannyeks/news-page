@@ -11,7 +11,7 @@
     background-position: center;
 }
 .isActivePage {
-    background-color: blue;
+    background-color: var(--components-color);
 }
 .is-hidden-btn {
     display: none;
@@ -29,3 +29,37 @@ header{
 			height: 113px;
 		}
 }
+.arrows {
+    width: 0;
+    height: 0;
+    animation: arrow-up 3s infinite;
+    cursor: pointer;
+    caret-color:transparent;
+    position: sticky;
+    bottom: 10vh;
+    left: 90vw;
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.arrow-up {
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid var(--components-color);
+    opacity: 0.9;
+        &.arrow-up-bottom {
+        bottom: 7vh;
+    }
+  }
+  @keyframes arrow-up {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }

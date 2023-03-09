@@ -7,7 +7,7 @@ import RefBtnClass from "./refBtnClass";
 import paginationRender from "./paginationRender";
 import {decreaseChangedBtn, increaseChangedBtn} from "./paginatorChangedBtn";
 import cardMarkup from "./cardMarkup";
-import headerRefs from "./headerRefs";
+import {headerRefs} from "./headerRefs";
 import {initWeather} from './weather';
 import { addItem, removeItem } from "./localstorage";
 import smoothScroll from "./smoothScroll";
@@ -25,6 +25,12 @@ const searchParams = new SearchInputParams({
 
 headerRefs.formRef.addEventListener('submit', onHeaderSearchSubmit);
 headerRefs.inputRef.addEventListener('input', onHeaderInput);
+headerRefs.arrowToTop.addEventListener('click', onArrowToTop);
+
+
+function onArrowToTop(event) {
+    smoothScroll();
+}
 
 
 async function onRefBtn(event){
