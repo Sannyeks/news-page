@@ -73,4 +73,18 @@
     transition: transform 250ms ease-in-out;
 }
 
+.read-not-found {
+    // display: none;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 80px;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 48px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 60px;
+    }
+}
 
