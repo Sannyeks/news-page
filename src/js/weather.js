@@ -121,7 +121,7 @@ function showError(error) {
 }
 
 function getWeather(latitude, longitude) {
-   let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+   let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
     
     fetch(api)
         .then(function(response){
@@ -153,7 +153,7 @@ function displayWeather() {
 
 function forecast(latitude, longitude) {
 	const newKey = 'ba7fddf449339701f9df702aeb87be1d'
-	const API_URL = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${newKey}`;
+	const API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${newKey}`;
     
 	fetch(API_URL)
   .then(response => response.json())
