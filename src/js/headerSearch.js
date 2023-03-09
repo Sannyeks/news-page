@@ -208,10 +208,12 @@ function onHeaderSearchSubmit (event) {
                 try{
                     if(getCuttedArticle(searchParams).length === 0) {
                         document.querySelector('.thumb').innerHTML = '';
+                        headerRefs.arrowToTop.classList.add('is-hidden-btn');
                         headerRefs.list.innerHTML = '<div class="default-img"></div>';
                             return;
                     } else {
                         headerRefs.list.replaceChildren(cardMarkup(getCuttedArticle(searchParams)));
+                        headerRefs.arrowToTop.classList.remove('is-hidden-btn');
                         initWeather();
                     }
                 } catch(err) {

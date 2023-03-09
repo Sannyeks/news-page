@@ -1,18 +1,16 @@
 .default-img {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vw;
-    height: 80vh;
+    width: 60vw;
+    height: 60vh;
     background-image: url(../images/desktop@2x.png);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
+    
 }
-.isActivePage {
-    background-color: var(--components-color);
-}
+
 .is-hidden-btn {
     display: none;
 }
@@ -36,11 +34,17 @@ header{
     cursor: pointer;
     caret-color:transparent;
     position: sticky;
-    bottom: 10vh;
-    left: 90vw;
+    bottom: 10%;
+    left: 70%;
     &:hover {
         animation-play-state: paused;
     }
+	  @include tablet {
+      left: 85%;
+		}
+	  @include desktop {
+      left: 90%;
+		}
 }
 
 .arrow-up {
