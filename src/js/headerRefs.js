@@ -9,5 +9,5 @@ const headerRefs = {
     arrowToTop:document.querySelector('.arrows'),
 };
 
-export{headerRefs};
+export {headerRefs};
 

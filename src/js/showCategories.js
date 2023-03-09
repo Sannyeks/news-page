@@ -129,13 +129,13 @@ function upadatePerPage() {
 	const mediaQueryMobile = window.matchMedia('(max-width: 767px)');
 	
 	if (mediaQueryDesktop.matches) {
-	  return 9;
+	  return 8;
 	} 
 	if (mediaQueryTablet.matches) {
-	  return 6;
+	  return 7;
 	} 
 	if (mediaQueryMobile.matches) {
-	  return 3;
+	  return 4;
 	} 
 
 }
