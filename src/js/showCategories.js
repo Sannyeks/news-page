@@ -1,7 +1,7 @@
 import { markupCategories, markupNameButton } from './markupCategoriesFilter.js';
 import cardMarkup from "./cardMarkup";
 import {initWeather} from './weather';
-import headerRefs from "./headerRefs";
+import {headerRefs} from "./headerRefs";
 
 
 const categoriesList = document.querySelector('.buttons-list');
