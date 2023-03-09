@@ -25,6 +25,12 @@ const searchParams = new SearchInputParams({
 
 headerRefs.formRef.addEventListener('submit', onHeaderSearchSubmit);
 headerRefs.inputRef.addEventListener('input', onHeaderInput);
+headerRefs.arrowToTop.addEventListener('click', onArrowToTop);
+
+
+function onArrowToTop(event) {
+    smoothScroll();
+}
 
 
 async function onRefBtn(event){
