@@ -1,7 +1,7 @@
 import cardMarkup from "./cardMarkup";
 import {initWeather} from './weather';
 import getNewsBySearch from "./getNewsBySearch";
-import headerRefs from "./headerRefs";
+import { headerRefs } from "./headerRefs";
 import smoothScroll from "./smoothScroll";
 
 
