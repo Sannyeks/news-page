@@ -1,0 +1,164 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pagination-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    padding-top: 60px;
+    padding-bottom: 150px;
+  }
+
+  .ellipsis {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.19;
+    color: #111321;
+    padding-top: 8px;
+  }
+
+  .buttons {
+    font-family: 'Manrope';
+    font-weight: 500;
+    size: 14px;
+    line-height: 1.36;
+    width: 28px;
+    height: 28px;
+    color: #111321;
+    border: 1px solid #4440F6;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2px;
+    cursor: pointer;
+  }
+
+  .buttons.prew-btn {
+    width: 72px;
+  }
+
+  .buttons.next-btn {
+    width: 72px;
+  }
+
+  .isActivePage {
+    color: #F4F4F4;
+    background: #4440F6;
+  }
+
+  .buttons.prew-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+    border-color: gray;
+  }
+
+  .buttons.next-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+    border-color: gray;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pagination-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 8px;
+    padding-top: 60px;
+    padding-bottom: 150px;
+  }
+
+  .ellipsis {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.19;
+    color: #111321;
+    padding-top: 8px;
+  }
+
+  .buttons {
+    font-family: 'Manrope';
+    font-weight: 500;
+    size: 16px;
+    line-height: 1.22;
+    width: 33px;
+    height: 31px;
+    color: #111321;
+    border: 1px solid #4440F6;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2px;
+    cursor: pointer;
+  }
+
+  .buttons.prew-btn {
+    width: 82px;
+  }
+
+  .buttons.next-btn {
+    width: 78px;
+  }
+
+  .isActivePage {
+    color: #F4F4F4;
+    background: #4440F6;
+  }
+
+  .buttons.prew-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+    border-color: gray;
+  }
+
+  .buttons.next-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+    border-color: gray;
+  }
+}
+.small-paginator-back-btn {
+  margin-right: 100px;
+ 
+}
+
+.small-paginator-back-btn, 
+.small-paginator-next-btn {
+  margin-top: 40px;
+  margin-bottom: 100px;
+}

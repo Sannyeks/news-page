@@ -1,13 +1,17 @@
 .card__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 288px;
-  max-height: 630px;
+  height: 540px;
+  
   @include tablet {
     width: 353px;
-    max-height: 675px;
+    height: 675px;
   }
 
   @include desktop {
-    width: 396px;
+    width: 395px;
   }
 }
 
@@ -22,27 +26,35 @@
   }
 
   @include desktop {
-    width: 396px;
-    height: 675px;
+    width: 395px;
   }
 }
 
 .card-image__wrapper {
   position: relative;
 
-  max-height: 395px;
-  max-width: 288px;
+  width: 288px;
 
   @include tablet {
-    max-width: 395px;
+    width: 353px;
   }
 
   @include desktop {
-    max-width: 395px;
+    width: 395px;
   }
 }
 .card__image {
   filter: brightness(50%);
+  display: block;
+  width: 100%;
+
+  @include tablet {
+    width: 353px;
+  }
+
+  @include desktop {
+    width: 395px;
+  }
 }
 .card-jobsearching {
   display: block;
@@ -126,6 +138,18 @@
   background-image: url('../images/svg/heart_svg.svg');
 
   margin-left: 6px;
+}
+
+.card__text{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 176px;
+  
+  @include tablet {
+    height: 218px;
+  }
+
 }
 
 .card__title {

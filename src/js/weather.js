@@ -1,6 +1,63 @@
-import axios from "axios";
+
 const apiKey = "73bd6bca6bd522830119f0c6decba840";
 const KELVIN = 273;
+
+export function initWeather() {
+	const weatherContainer = document.querySelector(".card__item--weather")
+weatherContainer.innerHTML = `<div class="weather-container__all">
+  <div class="weather-container">
+    <div class="weather-current__container">
+      <div class="weather-top-card">
+        <div class="temperature-value animate__animated animate__fadeInUp">
+          <p></p>
+        </div>
+        <div class="description-wrapper">
+          <div
+            class="temperature-description animate__animated animate__fadeInUp"
+          >
+            <p>weather description</p>
+          </div>
+          <div class="location animate__animated animate__fadeInUp">
+            <p>Location</p>
+          </div>
+        </div>
+      </div>
+      <div class="weather-icon">
+        <img
+          src="/src/images/svg/unknown.png"
+          alt=""
+          height="155"
+          width="165"
+        />
+      </div>
+      <div class="day animate__animated animate__fadeInUp">
+        <p></p>
+      </div>
+      <div class="date animate__animated animate__fadeInUp">
+        <p></p>
+      </div>
+      <div class="week-weather animate__animated animate__fadeInUp">
+        <button class="weather-button" type="button">weather for week</button>
+      </div>
+    </div>
+  </div>
+  <div class="weather-week__container">
+    <div class="weather-week__list">
+      <p>Weather for week</p>
+      <ul class="weather-week__forecast">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="date animate__animated animate__fadeInUp">
+      <button class="weather-week-close-button" type="button">back</button>
+    </div>
+  </div>
+</div>`
+
 
 const tempElement = document.querySelector(".temperature-value p");
 const descElement = document.querySelector(".temperature-description p");
@@ -184,4 +241,5 @@ function onClose(e) {
 	if (weatherCurrent.classList.contains('is-hidden')) {
 		weatherCurrent.classList.remove('is-hidden')
 	}
+}
 }
