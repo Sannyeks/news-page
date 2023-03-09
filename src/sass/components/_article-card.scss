@@ -18,7 +18,7 @@
 .card__item--weather {
   background-color: #00dd73;
   width: 288px;
-  height: 630px;
+  height: 675px;
 
   @include tablet {
     width: 353px;
@@ -50,10 +50,14 @@
 
   @include tablet {
     width: 353px;
+    height: 395px;
+    object-fit: cover;
   }
 
   @include desktop {
     width: 395px;
+    height: 395px;
+    object-fit: cover;
   }
 }
 .card-jobsearching {
