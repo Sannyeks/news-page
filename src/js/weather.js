@@ -101,6 +101,9 @@ if('geolocation' in navigator){
     console.log(error);
 }
 
+getWeather(51.5074, 0.1278)
+forecast(51.5074, 0.1278)
+
 function setPosition(position) {
 	if (position && position.coords) {
 		let latitude = position.coords.latitude;
@@ -119,6 +122,28 @@ function showError(error) {
    //  notificationElement.style.display = "block";
    //  notificationElement.innerHTML = `<p> ${error.message} </p>`;
 }
+
+
+// 	function getWeatherdefoult() {
+//    let api = `https://api.openweathermap.org/data/2.5/weather?lat=50.4501&lon=30.5234&appid=${apiKey}`;
+    
+//     fetch(api)
+//         .then(function(response){
+//             let data = response.json();
+// 			  return data;
+//         })
+// 		 .then(function (data) {
+// 			// console.log(data);
+// 			weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+// 			weather.description = data.weather[0].description;
+// 			weather.iconId = data.weather[0].icon;
+// 			weather.city = data.name;
+// 			weather.country = data.sys.country;
+//         })
+//         .then(function(){
+//             displayWeather();
+//         });
+// }
 
 function getWeather(latitude, longitude) {
    let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
@@ -141,15 +166,14 @@ function getWeather(latitude, longitude) {
         });
 }
 
-function displayWeather() {
+	function displayWeather() {
+	
    iconElement.innerHTML = `<img src="http://openweathermap.org/img/wn/${weather.iconId}@4x.png" height= "155"
 	width= "165"/>`;
-   tempElement.insertAdjacentHTML('beforeend', `${weather.temperature.value}°`);
+   tempElement.innerHTML = `${weather.temperature.value}°`;
    descElement.innerHTML = `${weather.description}`;
 	locationElement.innerHTML = `${weather.city}`;
 }
-
-
 
 function forecast(latitude, longitude) {
 	const newKey = 'ba7fddf449339701f9df702aeb87be1d'
