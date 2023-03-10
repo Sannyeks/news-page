@@ -1,3 +1,5 @@
+
+
 const daysTag = document.querySelector('.days'),
   currentDate = document.querySelector('.current-date'),
   prevNextIcon = document.querySelectorAll('.calendar-icons span');
@@ -7,10 +9,7 @@ let date = new Date(),
   currDay = date.getDate(),
   currMonth = date.getMonth(),
   currYear = date.getFullYear();
-// export function showCurrentDate() {
-//   let value1 = currYear + '-' + (currMonth + 1) + '-' + currDay;
-//   document.getElementById('input-picker').value = value1;
-// }
+
 
 //Активные кнопки и модульний календарь
 (() => {
@@ -28,9 +27,7 @@ let date = new Date(),
   }
 
   document.addEventListener('click', hideModals);
-  //   function cleanInput() {
-  //     refs.input.classList.remove('isActive');
-  //   }
+ 
   function toggleModal() {
     refs.modal.classList.toggle('is-hidden-wrapper');
     refs.input.classList.toggle('isActive');
@@ -118,14 +115,7 @@ export const renderCalendar = number => {
 
   if (dayChange) {
     dayChange.addEventListener('click', evt => {
-      //evt.preventDefault();
-      // evt.target.classList.toggle('active');
-
-      //     function hideButton() {
-      //       if (showButton() && evt.target.contains('active')) {
-      //         // evt.target.classList.remove('active');
-      //       }
-      //     }
+    
       [...evt.currentTarget.children].forEach(item => {
         item.classList.remove('active');
         //console.log(item.textContent);
@@ -159,32 +149,24 @@ export const renderCalendar = number => {
         .classList.remove('switchedColor');
     });
   }
-
-  //}
 };
 
 renderCalendar();
-
 
 let findUl = document.querySelector('.days');
 // inputDateValue = document.querySelector('.calendar-input').value;
 
 prevNextIcon.forEach(icon => {
-  // getting prev and next icons
   icon.addEventListener('click', () => {
-    // adding click event on both icons
-    // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
     currMonth = icon.id === 'prev' ? currMonth - 1 : currMonth + 1;
     if (currMonth < 0 || currMonth > 11) {
-      // if current month is less than 0 or greater than 11
-      // creating a new date of current year & month and pass it as date value
       date = new Date(currYear, currMonth, new Date().getDate());
-      currYear = date.getFullYear(); // updating current year with new date year
-      currMonth = date.getMonth(); // updating current month with new date month
+      currYear = date.getFullYear(); 
+      currMonth = date.getMonth(); 
     } else {
-      date = new Date(); // pass the current date as date value
+      date = new Date(); 
     }
-    renderCalendar(); // calling renderCalendar function
+    renderCalendar(); 
     let test = JSON.parse(localStorage.getItem('VALUE'));
     let reachUl = daysTag.childNodes;
     //console.log(reachUl);
@@ -200,3 +182,32 @@ prevNextIcon.forEach(icon => {
 localStorage.removeItem('VALUE');
 localStorage.removeItem('date');
 
+
+
+
+// import { getCategoryList } from './api/fetchApi.js';
+// import cardMarkup from './cardMarkup'
+
+
+
+// function filterObjectsByDateAndCallCardMarkup(objects, date) {
+//   const filteredObjects = objects.filter((object) => {
+//     // Перевіряємо, чи дата об'єкту співпадає з заданою датою
+//     return object.date.getTime() === date.getTime();
+//   });
+
+//   // Для кожного об'єкту, який пройшов фільтрацію, викликаємо функцію "cardMarcup"
+//   filteredObjects.forEach((object) => {
+//     const cardMarkup = cardMarcup(object);
+//     // Робимо щось зі згенерованим розміткою картки, наприклад, додаємо його до DOM
+//     document.body.appendChild(cardMarkup);
+//   });
+// }
+
+// // Приклад використання функцій
+// const categories = ['Category 1', 'Category 2', 'Category 3'];
+// const objects = generateObjectsByCategory(categories);
+
+// // Фільтруємо об'єкти за датою і викликаємо "cardMarkup" для кожного об'єкту, який пройшов фільтрацію
+// const dateToFilterBy = new Date();
+// filterObjectsByDateAndCallCardMarkup(objects, dateToFilterBy);

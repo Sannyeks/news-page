@@ -28,7 +28,6 @@ function removeFromFavorite(event) {
 function favoriteNotFoundShow() {
   console.log(parseFavoriteNews === []);
   if (parseFavoriteNews.length === 0) {
-    console.log(1111);
     favoriteContainer.style.display = 'none';
     favoriteNotFound.style.display = 'flex';
     favoriteNotFound

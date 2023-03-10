@@ -6,6 +6,7 @@ body {
 	font-weight: 400;
 	background: var(--pimary-bg-color);
 	margin: 0;
+	transition: color .25s cubic-bezier(.4, 0, .2, 1);
 }
 
 .visually-hidden {
@@ -43,4 +44,10 @@ body {
 
 	--primary-swither-border-color: #FFFFFF;
 	--secondary-swither-border-color: #4B48DB;
+
+	--primary-header-border: rgba(244, 244, 244, 0.2);
+	--secondary-header-border: rgba(0, 0, 0, 0.2);
+
+	--primary-close-btn-border-color: #FFFFFF;
+	--secondary-close-btn-border-color: #111321;
 }

@@ -101,18 +101,21 @@ function onNextArrow() {
 		popularArticles.resetLimitOrder();
 	}
 	if(popularArticles.page <= popularArticles.getPages()) {
-		
+		popularArticles.increaseStep();
 		popularArticles.increasePage();
 		headerRefs.backArrow.removeAttribute('disabled');
+
 		headerRefs.list.replaceChildren(cardMarkup(normalizedPopularNews(popularArticles.sliceBody())));
 		initWeather();
-		popularArticles.increaseStep();
-		
-		} 
-	if(popularArticles.page > popularArticles.getPages()) {
+	
+		} else if(popularArticles.page > popularArticles.getPages()) {
 		popularArticles.cutToLimitOrder();
 		headerRefs.nextArrow.setAttribute('disabled',true);
 	}
+	if((popularArticles.body.length - popularArticles.lastNews + popularArticles.perPage ) < popularArticles.perPage ) {
+		headerRefs.nextArrow.setAttribute('disabled',true);
+	}
+
 	smoothScroll();
 }
 
@@ -120,13 +123,13 @@ function onBackArrow() {
 	
 	if(popularArticles.page > 0) {
 		popularArticles.decreasePage();
-
+		popularArticles.decreaseStep();
 		headerRefs.nextArrow.removeAttribute('disabled');
 		headerRefs.list.replaceChildren(cardMarkup(normalizedPopularNews(popularArticles.sliceBody())));
-		popularArticles.decreaseStep();
+		
 		initWeather();
 		} 
-	if(popularArticles.page === 0) {
+	if(popularArticles.page === 0 || popularArticles.firstNews === 0 ) {
 		headerRefs.backArrow.setAttribute('disabled',true);
 	}
 	if(popularArticles.firstNews < 0) {

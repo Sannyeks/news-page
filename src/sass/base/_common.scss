@@ -1,7 +1,7 @@
 .default-img {
     position: absolute;
     top: 55%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
     width: 60vw;
     height: 60vh;
@@ -16,7 +16,7 @@
 }
 
 header{
-	border-bottom: 1px solid #00000033;
+	border-bottom: 1px solid var(--primary-header-border);
 	@include mobile {
 			height: 81px;
 		}
