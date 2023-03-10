@@ -193,9 +193,16 @@
 .calendar-icons {
   display: flex;
   color: #4440f6;
+  gap: 52px;
+  padding-right: 16px;
 }
+// .material-symbols-rounded {
+//   width: 14px;
+//   height: 14px;
+
+// }
 .calendar-icons span {
-  width: 38px;
+  width: 17px;
   margin: 0 1px;
   text-align: center;
   line-height: 38px;
