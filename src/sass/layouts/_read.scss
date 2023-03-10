@@ -1,18 +1,31 @@
-.read-news__container {
-    padding: 40px 0 60px;
+// .read-news__container {
+    // padding: 40px 0 60px;
 
-    @mixin tablet {
-        @media screen and (min-width: 768px) {
-           padding: 48px 0 100px;
-        }
-    }
+    // @mixin tablet {
+    //     @media screen and (min-width: 768px) {
+    //        padding: 48px 0 100px;
+    //     }
+    // }
 
-    @mixin desktop {
-        @media screen and (min-width: 1280px) {
-            padding: 60px 0 160px;
-        }
-    }
+    // @mixin desktop {
+    //     @media screen and (min-width: 1280px) {
+    //         padding: 60px 0 160px;
+    //     }
+    // }
+    .read-news__container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+
+@media screen and (min-width: 768px) {
+    padding-top: 48px;
+    padding-bottom: 100px;
+    } 
+
+@media screen and (min-width: 1280px) {
+    padding-top: 60px;
+    padding-bottom: 300px;
 }
+    }
 
 .read-news__header {
     display: flex;
