@@ -54,13 +54,31 @@ async function onRefBtn(event){
                 headerRefs.list.replaceChildren(cardMarkup(res));
                 initWeather();
             });
+           
+            // const refsBtnsArray = [...refsBtns];
+            // const indexOfBtn = refsBtnsArray.findIndex((btn) => Number(btn.dataset.order) === Number(event.target.value -1));
+            // refsBtns[indexOfBtn].classList.add(activeClass);
 
-            for (let i = 0; i < refsBtns.length; i += 1) {
-                if (refsBtns[i].classList.contains(activeClass)){
-                    refsBtns[i].classList.remove(activeClass);
-                }
-            }
-            event.target.classList.add(activeClass);
+            // console.log(indexOfBtn);
+            
+            // for (let i = 0; i < refsBtnsArray.length; i += 1) {
+            //     if(refsBtns[i].classList.contains(activeClass)) {
+            //         refsBtns[i].classList.remove(activeClass);
+            //     }
+            // }
+            // for (let i = 0; i < refsBtnsArray.length; i += 1) {
+            //     if (refsBtns[indexOfBtn] === refsBtns[i]){
+            //         refsBtns[i].classList.add(activeClass);
+            //     }
+
+            // }
+
+    
+            
+             
+   
+            
+            
 
             if(Number(event.target.value) !== 1) {
                 backBtn.enable();
@@ -74,6 +92,7 @@ async function onRefBtn(event){
             if(Number(event.target.value) === 1) {
                 backBtn.disable();
             }
+            return;
         }  
         if(event.target.id === 'header-btn-next-js') {
             backBtn.enable();
