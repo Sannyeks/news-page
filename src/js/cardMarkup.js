@@ -201,7 +201,8 @@ export default function cardMarkup(items) {
     );
     const labelAlreadyRead = cardItem.querySelector('.card-already__read')
     const lnkReadMore = cardItem.querySelector('a.card__info--readmore')
-
+    const imgOverlay = cardItem.querySelector('.card__image')
+  
     btnAddToFavorite.addEventListener('click', () => {
       addItem(FAVORITE_KEY, item);
       btnAddToFavorite.classList.add('is-hidden');
@@ -219,6 +220,7 @@ export default function cardMarkup(items) {
       item.readDate=formatDate(new Date())
       addItem(READ_KEY, item);
       labelAlreadyRead.classList.remove('is-hidden')
+      imgOverlay.classList.add('img-overlay');
     })
     
     return cardItem;
