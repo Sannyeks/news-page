@@ -113,6 +113,7 @@ font: bold 40px Roboto, cursive;
   border-radius: 40px;
   align-items: center;
   justify-content: center;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);	
 
   font-size: 20px;
   color: #ffffff;
@@ -125,6 +126,7 @@ font: bold 40px Roboto, cursive;
 
 .footer-icons a:hover {
   background-color: #5383d3;
+
 }
 
 /* Footer Right */
@@ -192,6 +194,7 @@ font: bold 40px Roboto, cursive;
   height: 35px;
   margin-bottom: 15px;
   border-radius: 8px;
+transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
   height: 35px;
    }
@@ -204,6 +207,7 @@ font: bold 40px Roboto, cursive;
   height: 80px;
   margin-bottom: 20px;
   border-radius: 8px;
+transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
   height: 80px;
    }
@@ -219,6 +223,7 @@ font: bold 40px Roboto, cursive;
   border: 0;
   padding: 10px 30px;
   font-weight: 600;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   // float: right;
   margin-left: 100px;
   @media screen and (min-width: 768px) {
