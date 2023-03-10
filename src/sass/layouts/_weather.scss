@@ -7,10 +7,10 @@
 
 .weather-container {
 	margin: 0;
-	width: 353px;
-	height: 675px;
+	width: 288px;
+	height: 675px;	
 	background-color: var(--components-color);
-	padding: 40px 32px 60px 32px;
+	padding: 32px 36px 32px 36px;
 	font-family: 'Roboto', sans-serif;
 	color: var(--white-color);
 
@@ -18,7 +18,11 @@
 	flex-direction: column;
 	justify-content: space-between;
 
-	@include tablet {}
+	@include tablet {
+		width: 353px;
+		height: 675px;
+		padding: 40px 53px 60px 53px;
+	}
 
 	@include desktop {
 		width: 395px;
@@ -30,20 +34,33 @@
 .weather-top-card {
 
 	display: flex;
+
 }
 
 .temperature-value {
 	font-weight: 400;
-	font-size: 64px;
+	font-size: 32px;
 	line-height: 1.17;
 	border-right: 1px solid var(--white-color);
 	padding-right: 8px;
+	@include tablet {
+		font-size: 64px;
+	}
+	@include desktop {
+		font-size: 64px;
+	}
 }
 
 .temperature-description {
 	font-weight: 400;
-	font-size: 36px;
+	font-size: 32px;
 	line-height: 1.16;
+	@include tablet {
+		font-size: 36px;
+	}
+	@include desktop {
+		font-size: 36px;
+	}
 }
 
 .description-wrapper {
@@ -60,9 +77,16 @@
 	padding: 10px 17px 10px 35px;
 	text-align: center;
 	font-weight: 400;
-	font-size: 20px;
+	font-size: 14px;
 	line-height: 1.15;
 	position: relative;
+
+	@include tablet {
+			font-size: 20px;
+		}
+	@include desktop {
+		font-size: 20px;
+	}
 
 	&:before {
 		content: url(/src/images/svg/location.svg);
@@ -91,11 +115,14 @@
 .day,
 .date {
 	font-weight: 400;
-	font-size: 36px;
+	font-size: 28px;
 	line-height: 1.16;
 	text-align: center;
 	margin: 0;
 	margin-bottom: 5px;
+	@include tablet {
+			font-size: 36px;
+		}
 }
 
 .week-weather {
@@ -114,12 +141,18 @@
 	text-align: center;
 	padding: 12px 9px;
 	font-weight: 400;
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 1.15;
 	border: none;
 	color: inherit;
 	transition: background-color 250ms ease;
 
+	@include tablet {
+		font-size: 20px;
+	}
+	@include desktop {
+		font-size: 20px;
+	}
 	&:hover,
 	:focus {
 		background: rgba(254, 254, 255, 0.5);
@@ -176,6 +209,10 @@
 	background: rgba(254, 254, 255, 0.3);
 	border-radius: 10px;
 	padding: 4px;
+	margin-bottom: 10px;
+	@include tablet {
+		margin-bottom: 0;
+	}
 
 	@include desktop {
 		padding: 8px;
@@ -184,7 +221,7 @@
 
 .weather-week__item {
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.16;
 
 	@include tablet {}

@@ -41,7 +41,7 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 1.38;
-    color: #111321;
+    color: var(--primary-text-color);
     // margin-right: -180px;
     margin-left: 111px;
   }
@@ -64,8 +64,9 @@
   width: 152px;
   height: 31px;
   padding: 5px 12px;
-  border: 1px solid #4440f6;
+  border: 1px solid var(--components-color);
   border-radius: 20px;
+	
 
   text-align: center;
 

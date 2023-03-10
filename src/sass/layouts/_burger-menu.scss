@@ -33,7 +33,7 @@
   border: none;
   background-color: inherit;
   font-size: 15px;
-	fill: var(--primary-bg-color);
+	fill: var(--primary-close-btn-border-color);
 }
 
 .modal-menu__icon-close {
@@ -41,7 +41,7 @@
   height: 1em;
   padding: 0;
   margin: 0;
-  fill: var(--primary-bg-color);
+  fill: var(--primary-close-btn-border-color);
 }
 
 .modal-menu__close-btn:focus,
@@ -180,4 +180,19 @@
 .mobile-menu__open-btn:hover .mobile-menu__icon-open {
   fill: var(--components-color);
   cursor: pointer;
+}
+
+.modal-menu__conteiner {
+	background-color: var(--pimary-bg-color);
+}
+
+.switcher-icon{
+	width: 21px;
+	height: 21px;
+}
+.sun {
+	fill: var(--primary-switcher-color);
+}
+.moon{
+	fill: var(--secondary-switcher-color);
 }
