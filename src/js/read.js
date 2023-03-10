@@ -49,7 +49,7 @@ function toggleDropdown(event) {
 const readNotFound = document.querySelector('.read-not-found');
 const readNewContainer = document.querySelector('.read-news__container');
 function readNotFoundShow() {
-  console.log(loadItems(READ_KEY) === []);
+//   console.log(loadItems(READ_KEY) === []);
   if (loadItems(READ_KEY).length === 0) {
     console.log(1111);
     readNewContainer.style.display = 'none';

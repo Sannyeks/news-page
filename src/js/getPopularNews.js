@@ -117,6 +117,7 @@ function onPagBtn(event) {
 		headerRefs.list.replaceChildren(cardMarkup(normalizedPopularNews(popularArticles.sliceBody())));
 		document.querySelectorAll('#small-pag-btn')[popularArticles.page - 1].classList.add('isActivePage');
 		smoothScroll();
+		initWeather();
 	}
 	if(Number(event.target.value) === 1) {
 		headerRefs.backArrow.setAttribute('disabled',true);
