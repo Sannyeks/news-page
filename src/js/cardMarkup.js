@@ -157,7 +157,7 @@ export default function cardMarkup(items) {
     
     const cardItem = document.createElement('li');
     cardItem.classList.add('card__item');
-    cardItem.innerHTML = `<div class="card__wrapper">
+    cardItem.innerHTML = `<div class="card__wrapper animate__animated animate__fadeIn">
     <div>
       <div class="card-image__wrapper">
         <img
