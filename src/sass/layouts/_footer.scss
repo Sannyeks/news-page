@@ -24,6 +24,19 @@
   font: 16px sans-serif;
   text-align: left;
   overflow: hidden;
+  // margin-top: 250px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  @media screen and (min-width: 768px) {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  // margin-top: 250px;
+}
+@media screen and (min-width: 1280px) {
+  padding-top: 40px;
+  padding-bottom: 50px;
+  // margin-top: 350px;
+}
       
 }
 
@@ -176,15 +189,27 @@ font: bold 40px Roboto, cursive;
 }
 
 .footer-distributed form input {
-  height: 55px;
+  height: 35px;
   margin-bottom: 15px;
   border-radius: 8px;
+  @media screen and (min-width: 768px) {
+  height: 35px;
+   }
+  @media screen and (min-width: 1280px) {
+  height: 55px;
+   }
 }
 
 .footer-distributed form textarea {
-  height: 100px;
+  height: 80px;
   margin-bottom: 20px;
   border-radius: 8px;
+  @media screen and (min-width: 768px) {
+  height: 80px;
+   }
+  @media screen and (min-width: 1280px) {
+  height: 100px;
+   }
 }
 
 .footer-distributed form button {
@@ -192,15 +217,17 @@ font: bold 40px Roboto, cursive;
   background-color: #33383b;
   color: #ffffff;
   border: 0;
-  padding: 15px 50px;
+  padding: 10px 30px;
   font-weight: 600;
   // float: right;
-  margin-left: 90px;
+  margin-left: 100px;
   @media screen and (min-width: 768px) {
-  margin-left: 80px;
+  margin-left: 100px;
+  padding: 10px 30px;
   }
   @media screen and (min-width: 1280px) {
   margin-left: 140px;
+  padding: 15px 50px;
   }
  
 }
